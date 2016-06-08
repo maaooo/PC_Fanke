@@ -1,0 +1,207 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-user-select: none;
+    cursor: default;
+}
+
+#LogoImg {
+    position: absolute;
+    left: 2px;
+    top: 0;
+}
+
+#MouseDrag {
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-app-region: drag;
+    height: 46px;
+    opacity: 1.0;
+    background: #0C1B26;
+    width: 100%;
+}
+
+#NewBody {
+    position: absolute;
+    left: 0;
+    top: 46px;
+}
+
+#RecordVideo{
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right:30%;
+    top: 0;
+    width: 64px;
+    height: 47px;
+    float: right;
+    -webkit-app-region: no-drag;
+    background: url(../Image/录制按钮_默认.png);
+}
+#RecordVideo:hover{
+    background: url(../Image/录制按钮_滑过.png);
+}
+#RecordVideo:active{
+    background: url(../Image/录制按钮_点击.png);
+}
+
+#WClose {
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 8px;
+    top: 10px;
+    width: 24px;
+    height: 24px;
+    float: right;
+    -webkit-app-region: no-drag;
+    background: url(../Image/关闭_默认.png);
+}
+#WClose:focus {
+    outline:none;
+}
+
+#WClose:hover {
+
+    background: url(../Image/关闭_滑过.png); /* 鼠标点击按钮时的背景颜色 */
+}
+
+#WClose:active {
+
+    background: url(../Image/关闭_点击.png);
+}
+
+#WMax {
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 48px;
+    top: 10px;
+    width: 24px;
+    height: 24px;
+    float: right;
+    -webkit-app-region: no-drag;
+    background: url(../Image/放大_默认.png);
+}
+#WMax:focus {
+    outline:none;
+}
+#WMax:hover {
+    background: url(../Image/放大_滑过.png);
+}
+#WMax:active {
+
+    background: url(../Image/放大_点击.png);
+}
+
+#WMin {
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 88px;
+    top: 10px;
+    width: 25px;
+    height: 25px;
+    float: right;
+    -webkit-app-region: no-drag;
+    background: url(../Image/缩小_默认.png);
+}
+#WMin:focus {
+    outline:none;
+}
+#WMin:hover {
+    background: url(../Image/缩小_滑过.png);
+}
+
+#WMin:active {
+    background: url(../Image/缩小_点击.png);
+}
+
+#TabMain {
+    position: fixed;
+    left: 25%;
+    top: 10px ;
+    height:35px;
+
+    -webkit-app-region: no-drag;
+}
+
+.tabItemContainer {
+    width: auto;
+    height: 200px;
+    float: left;
+}
+
+
+.tabItemContainer > li {
+    width: 87px;
+    float: left;
+    text-align: center;
+    color: darkcyan;
+}
+
+.tabItemContainer > li > a {
+    float: left;
+    width: 100%;
+    padding: 8px 0 15px 0;
+    font: 15px "微软雅黑", Arial, Helvetica, sans-serif,bold;
+    color: #77848B;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid transparent;
+}
+
+
+
+.tabItemCurrent {
+
+    background-color: #2F3D44;
+    border: 1px solid #2F3D44 !important;
+    border-right: 1px solid #2F3D44 !important;
+    position: relative;
+    height: 20px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+
+.tabItemContainer > li > a:hover {
+    color: #fff;
+}
+
+
+
+.tabBodyContainer {
+    position: absolute;
+    left: 0;
+    top: 46px;
+    width: 100%;
+    bottom:0;
+    float: left;
+
+    background-color: darkcyan;
+}
+
+.tabBodyItem {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    bottom:0;
+
+    display: none;
+}
+
+.tabBodyItem > p {
+    font: 13px "微软雅黑", Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+.tabBodyCurrent {
+    display: block;
+}
+
+
+body {
+    background:#808080;
+}

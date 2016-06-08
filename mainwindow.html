@@ -1,0 +1,70 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Window Test</title>
+    <link rel="stylesheet" type="text/css" href="CSS/mainwindow.css" />
+
+    <script src="JS/jquery-2.2.4.min.js"></script>
+    <script src="JS/json2.js"></script>
+    <script src="JS/mainwindow.js"></script>
+</head>
+
+<body>
+
+
+    <div id="MouseDrag">
+
+    </div>
+    <img id="LogoImg" width="180" height="50" src="Image/LOGO.png" />
+
+    <input id="RecordVideo" type="button" Title="录制新微课" onclick="recordVideo();">
+
+    <input id="WClose" type="button" Title="录制新微课" onclick="winClose();">
+    <input id="WMax" type="button" onclick="maximize();;">
+    <input id="WMin" type="button" onclick="minimize();">
+
+    <div id="TabMain">
+        <ul class="tabItemContainer">
+            <li><a class="tabItemCurrent">在线课程</a></li>
+            <li><a>课程社区</a></li>
+            <li><a>风云排行</a></li>
+            <li><a>个人中心</a></li>
+
+        </ul>
+    </div>
+    <div class="tabBodyContainer">
+        <div class="tabBodyItem">
+            <p>我是Tab选项卡1的内容</p>
+            <p>使用简单，引入css和Jq代码即可</p>
+        </div>
+        <div class="tabBodyItem">
+            <p>我是Tab选项卡2的内容</p>
+            <p></p>
+        </div>
+        <div class="tabBodyItem">
+            <p>我是Tab选项卡3的内容</p>
+            <p></p>
+        </div>
+        <div class="tabBodyItem">
+            <p>我是Tab选项卡4的内容</p>
+            <p></p>
+        </div>
+        <div class="tabBodyItem">
+            <p>我是Tab选项卡5的内容</p>
+            <p></p>
+        </div>
+    </div>
+
+
+
+    <div id="NewBody">
+        <!--  Click a button to perform the associated window action.
+
+        <a href="http://tests/other_tests">搜狐</a>
+
+        <input type="button" onclick="restore();" value="Restore"> (minimizes and then restores the window as topmost)
+        <input type="button" onclick="position();" value="Set Position"> X: <input type="text" size="4" id="x" value="200"> Y: <input type="text" size="4" id="y" value="100"> Width: <input type="text" size="4" id="width" value="800"> Height: <input type="text" size="4" id="height" value="600">
+            -->
+    </div>
+</body>
+</html>

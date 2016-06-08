@@ -1,0 +1,103 @@
+﻿<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  	<link rel="stylesheet" type="text/css" href="CSS/animate-custom.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/login-style.css" />
+    <script src="JS/jquery-2.2.4.min.js"></script>
+    <script src="JS/json2.js"></script>
+    <script src="JS/login.js"></script>
+    <script src="JS/ConnectSQL.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div id="MouseDrag">
+
+        </div>
+        <input id="WClose" type="button" Title="录制新微课" onClick="winClose();">
+
+        <div id="logoImage"> 
+            
+        </div>
+        <div id="container_demo">
+            <!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+            <a class="hiddenanchor" id="toregister"></a>
+            <a class="hiddenanchor" id="tologin"></a>
+            <div id="wrapper">
+                <div id="login" class="animate form">
+                    <form>
+                        <h1> 登 录 泛 课</h1>
+                        <p>
+                            <label for="username" class="uname" data-icon="u"> Your email or username </label>
+                            <input id="username" name="username" required type="text" value="" placeholder="myusername or mymail@mail.com" />
+                        </p>
+                        <p>
+                            <label for="password" class="youpasswd" data-icon="p"> Your password </label>
+                            <input id="password" name="password" required type="password" value="" placeholder="eg. X8df!90EO" />
+                        </p>
+                        <p class="keeplogin">
+                            <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
+                            <label for="loginkeeping">Keep me logged in</label>
+                        </p>
+                        <p class="login button">
+                            <!--<input type="submit" value="Login" onclick="tologin();" />-->
+                             <input value="Login" type="button" onClick="tologin();" />
+                        </p>
+                        <p class="change_link">
+                            Not a member yet ?<a href="#toregister" class="to_register">Join us</a>
+                        </p>
+                        <p  >
+                            <label id="loginInfo"></label>
+                        </p>
+                    </form>
+                </div>
+
+                <div id="register" class="animate form">
+                    <form action="mysuperscript.php" autocomplete="on">
+                        <h1> 注 册 泛 课</h1>
+                        <p>
+                            <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
+                            <input id="usernamesignup" name="usernamesignup" required type="text" placeholder="mysuperusername690" />
+                        </p>
+                        <p>
+                            <label for="emailsignup" class="youmail" data-icon="e"> Your email</label>
+                            <input id="emailsignup" name="emailsignup" required type="email" placeholder="mysupermail@mail.com" />
+                        </p>
+                        <p>
+                            <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+                            <input id="passwordsignup" name="passwordsignup" required type="password" placeholder="eg. X8df!90EO" />
+                        </p>
+                        <p>
+                            <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
+                            <input id="passwordsignup_confirm" name="passwordsignup_confirm" required type="password" placeholder="eg. X8df!90EO" />
+                        </p>
+                        <p class="signin button">
+                            <input type="submit" value="Sign up" />
+                        </p>
+                        <p class="change_link">
+                            Already a member ?
+                            <a href="#tologin" class="to_register"> Go and log in </a>
+                        </p>
+                    </form>
+                </div>
+
+            </div>
+        </div>  
+ 
+        <div class="demo-1">
+            <div class="content">
+                <div id="large-header" class="large-header" style="height:100%;">
+                    <canvas id="demo-canvas"></canvas>
+                    <!--  <h1 class="main-title">MAO <span class="thin">Yang</span></h1>-->
+                </div>
+            </div>
+        </div><!-- /container -->
+		 <script src="js/星云鼠标跟随/TweenLite.min.js"></script>
+		 <script src="js/星云鼠标跟随/EasePack.min.js"></script>
+         <script src="js/星云鼠标跟随/rAF.js"></script>
+         <script src="js/星云鼠标跟随/demo-1.js"></script>
+       </div>
+</body>
+</html>
