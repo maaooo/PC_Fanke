@@ -24,10 +24,21 @@ $(document).ready(function (e) {
     loadedShow();
     sqldata=SQlData.createNew();
     sqldata.CreateLoginTable();
+
+    sqldata.QueryLoginTable();
     //sqldata.InsertLoginTable("mao","yang",false);
     //sqldata.UpdataLoginTable("mao","1");
 
 });
+
+function enterChange()
+{
+    $('#loginInfo').html("");
+   // alert("hide");
+    //$("#loginkeeping").hide();
+    //document.getElementById("loginkeeping").hide();
+}
+
 /*
 function setCookie(name, value) {
     var Days = 30;
@@ -50,7 +61,8 @@ function tologin()
     var password = $('#password').val();
     var loginkeeping =$("#loginkeeping")[0].checked;
     if(username===""||password===""){
-        $('#loginInfo').html("用户名或密码不能为空");
+        document.getElementById("loginInfo").style.color="#ff0000";
+        $('#loginInfo').html("用户名或密码不能为空!!!");
         return;
     }
 

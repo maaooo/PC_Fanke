@@ -27,9 +27,8 @@ var SQlData ={
             });
         }
         /*
-         user 要更新的数据项
-         rusData 数据
-        
+         user  -->   where 数据项
+         rusData -->  数据
          */
         sqldata.UpdataLoginTable=function (user,rusData,callback) {
             var Rus = JSON.parse(rusData);
@@ -49,16 +48,22 @@ var SQlData ={
                         callback(false);
                        // alert('更新失败: ' + error.message);
                     });
+            });
+        }
 
-
-             /*   tx.executeSql("update login set uid = ? where id = ?",["ddddd3333333333333",1],
-                    function (tx, result) {
-                       // alert('更新成功: ' );
-                        callback();
+        // "select * from login", [],
+        
+        sqldata.QueryLoginTable=function () {
+            dataBase.transaction(function (tx) {
+                tx.executeSql(
+                    "select  * from login order by id desc limit 0,1", [],
+                    function (tx, result) { //执行成功的回调函数
+                        //在这里对result 做你想要做的事情吧...........
+                        alert(result.rows.item(0).Loginusername);
                     },
                     function (tx, error) {
-                        alert('更新失败: ');
-                    });*/
+                        alert('查询失败: ' + error.message);
+                    } );
             });
         }
 
