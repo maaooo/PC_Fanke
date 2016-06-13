@@ -336,6 +336,27 @@ input {
     outline: none;
 }
 
+
+#selectIdentity {
+
+    width: 92%;
+    background: rgba(147,184,189,0.0);
+    margin-top: -10px;
+    padding: 10px 5px 10px 32px;
+    border: 1px solid rgb(178, 178, 178);
+    box-sizing: content-box;
+    border-radius: 3px;
+    color: #fff;
+    box-shadow: 0px 1px 0px 0px rgba(168, 168, 168, 0.6) inset;
+    transition: all 0.2s linear;
+}
+#Teacher,#TeacherLabel{
+    cursor: hand;
+}
+#Student,#StudentLabel{
+    cursor: hand;
+}
+
 /* all the input except submit and checkbox */
 #wrapper input:not([type="checkbox"]) {
     width: 92%;
@@ -488,6 +509,7 @@ p.change_link {
 #register {
     z-index: 21;
     opacity: 0;
+    top: 30px;
 }
 
 #login {

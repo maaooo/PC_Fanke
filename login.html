@@ -2,13 +2,13 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
   	<link rel="stylesheet" type="text/css" href="CSS/animate-custom.css" />
     <link rel="stylesheet" type="text/css" href="CSS/login-style.css" />
     <script src="JS/jquery-2.2.4.min.js"></script>
-    <script src="JS/json2.js"></script>
+   <!-- <script src="JS/json2.js"></script>-->
     <script src="JS/login.js"></script>
     <script src="JS/ConnectSQL.js"></script>
+    <script src="JS/ServerRequest.js"></script>
 
 </head>
 <body>
@@ -43,7 +43,7 @@
                         </p>
                         <p class="login button">
                             <!--<input type="submit" value="Login" onclick="tologin();" />-->
-                             <input value="Login" type="button" onClick="tologin();" />
+                             <input value="Login" type="button"  onClick="toLogin();" />
                         </p>
                         <p class="change_link">
                             Not a member yet ?<a href="#toregister" class="to_register">Join us</a>
@@ -55,15 +55,16 @@
                 </div>
 
                 <div id="register" class="animate form">
-                    <form action="mysuperscript.php" autocomplete="on">
+                    <form >
                         <h1> 注 册 泛 课</h1>
                         <p>
                             <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-                            <input id="usernamesignup" name="usernamesignup" required type="text" placeholder="mysuperusername690" />
+                            <input id="usernamesignup" name="usernamesignup" required type="text" placeholder="eg. Thomas" />
                         </p>
+
                         <p>
-                            <label for="emailsignup" class="youmail" data-icon="e"> Your email</label>
-                            <input id="emailsignup" name="emailsignup" required type="email" placeholder="mysupermail@mail.com" />
+                            <label for="emailsignup" class="youmail" data-icon="u"> Your nickname</label>
+                            <input id="emailsignup" name="emailsignup" required type="email" placeholder="eg. Tom" />
                         </p>
                         <p>
                             <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
@@ -73,8 +74,21 @@
                             <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
                             <input id="passwordsignup_confirm" name="passwordsignup_confirm" required type="password" placeholder="eg. X8df!90EO" />
                         </p>
+                        <p  >
+                            <label  >Please select your identity </label>
+                             <div id="selectIdentity">
+                                <input type="checkbox" name="Teacher" id="Teacher" value="loginkeeping" />
+                                <label for="Teacher" id="TeacherLabel">Teacher</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="Student" id="Student" value="loginkeeping" />
+                                <label for="Student" id="StudentLabel">Student</label>
+                             </div>
+
+
+                        </p>
+
                         <p class="signin button">
-                            <input type="submit" value="Sign up" />
+                            <input  type="button" value="Sign up"  onClick="toRegister();"/>
                         </p>
                         <p class="change_link">
                             Already a member ?

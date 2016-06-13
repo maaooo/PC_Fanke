@@ -5,7 +5,7 @@
 
 var SQlData ={
 
-    dataBase:false,
+    dataBase:{},
     createNew:function () {
         var sqldata={};
 
@@ -26,10 +26,7 @@ var SQlData ={
                     [null, name,pasword,isSave]);
             });
         }
-        /*
-         user  -->   where 数据项
-         rusData -->  数据
-         */
+ 
         sqldata.UpdataLoginTable=function (user,rusData,callback) {
             var Rus = JSON.parse(rusData);
             var obj = Rus.data;
@@ -53,18 +50,24 @@ var SQlData ={
 
         // "select * from login", [],
         
-        sqldata.QueryLoginTable=function () {
+        sqldata.QueryLoginTable=function (callbalck) {
+
             dataBase.transaction(function (tx) {
                 tx.executeSql(
                     "select  * from login order by id desc limit 0,1", [],
-                    function (tx, result) { //执行成功的回调函数
-                        //在这里对result 做你想要做的事情吧...........
-                        alert(result.rows.item(0).Loginusername);
+                    function (tx, result) {
+                        var mao=new Object();
+                        mao.name=result.rows.item(0).Loginusername;
+                        mao.pw=result.rows.item(0).loginpassword;
+                        mao.isSave=result.rows.item(0).isSave;
+                        callbalck(JSON.stringify(mao));
+                        mao=null;
                     },
                     function (tx, error) {
                         alert('查询失败: ' + error.message);
                     } );
             });
+
         }
 
 
