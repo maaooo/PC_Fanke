@@ -64,10 +64,23 @@ var SQlData ={
                         mao=null;
                     },
                     function (tx, error) {
-                        alert('查询失败: ' + error.message);
+                        //alert('查询失败: ' + error.message);
                     } );
             });
 
+        }
+
+        sqldata.GetLoginData = function (callbalck) {
+            dataBase.transaction(function (tx) {
+                tx.executeSql(
+                    "select  * from login order by id desc limit 0,1", [],
+                    function (tx, result) {
+                        callbalck(result);
+                    },
+                    function (tx, error) {
+                        //alert('查询失败: ' + error.message);
+                    } );
+            });
         }
 
 

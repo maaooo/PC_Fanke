@@ -27,14 +27,19 @@ var ServerData ={
         }
 
 
-        serverdata.login=function(data,callbackOK,callbackError) {
+        serverdata.login = function(data,callbackOK,callbackError) {
             var url=ServerData.requestUrl+"login";
             this.quest(url,data,callbackOK,callbackError);
         }
-        serverdata.register=function(data,callbackOK,callbackError) {
+        serverdata.register = function(data,callbackOK,callbackError) {
             var url=ServerData.requestUrl+"register";
             this.quest(url,data,callbackOK,callbackError);
         }
+        serverdata.works_good_list = function(data,callbackOK,callbackError) {
+            var url=ServerData.requestUrl+"works_good_list";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+
 
         return serverdata;
     }

@@ -50,11 +50,18 @@ function recordVideo() {
 }
 
 
+var sqldata={};
+var ServerRuqest={};
 
 $(document).ready(function (e) {
     SidebarTabHandler.Init();
+    sqldata=SQlData.createNew();
+    ServerRuqest=ServerData.createServer();
     $(".tabItemCurrent").trigger("click");
+
     loadedShow();
+
+
 });
 var SidebarTabHandler = {
     Init: function () {

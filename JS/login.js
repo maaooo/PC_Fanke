@@ -27,16 +27,11 @@ $(document).ready(function (e) {
     sqldata.CreateLoginTable();
     ServerRuqest=ServerData.createServer();
 
-  //  sqldata.QueryLoginTable();
-    //sqldata.InsertLoginTable("mao","yang",false);
-    //sqldata.UpdataLoginTable("mao","1");
-
-    document.getElementById("username").value="6666";
     sqldata.QueryLoginTable(GetOldLoginData);
 
 });
 
-function GetOldLoginData(Data) {
+function GetOldLoginData(Data) {//callbaclk
     var obj = JSON.parse(Data);
    // alert(typeof(obj.isSave));
     document.getElementById("username").value=obj.name;
@@ -51,22 +46,32 @@ function GetOldLoginData(Data) {
 
 }
 
-function enterChange()
-{
+function loginEnterChange() {
     $('#loginInfo').html("");
-   // alert("hide");
-    //$("#loginkeeping").hide();
-    //document.getElementById("loginkeeping").hide();
+}
+function RegisterEnterChange() {
+    $('#registerInfo').html("");
+}
+
+function T_IdentityChange(obj) {
+    if(obj.checked==true)
+        document.getElementById("Student").checked=false;
+}
+function S_IdentityChange(obj) {
+    if(obj.checked==true)
+        document.getElementById("Teacher").checked=false;
 }
 
 
 
-
-function errorinfo(errortext) {
-    document.getElementById("loginInfo").style.color="#ff0000";
+function loginErrorInfo(errortext,coloc) {
+    document.getElementById("loginInfo").style.color=coloc;
     $('#loginInfo').html(errortext);
 }
-
+function RegisterErrorInfo(errortext) {
+    document.getElementById("registerInfo").style.color="#ff0000";
+    $('#registerInfo').html(errortext);
+}
 
 function toLogin() {
 
@@ -74,7 +79,7 @@ function toLogin() {
     var password = $('#password').val();
     var loginkeeping =$("#loginkeeping")[0].checked;
     if(username===""||password===""){
-        errorinfo("用户名或密码不能为空!!!");
+        loginErrorInfo("用户名或密码不能为空","#ff0000");
         return;
     }
     var PostData="username="+username+"&password="+password;
@@ -87,14 +92,79 @@ function toLogin() {
                 window.location.assign("file:///H:\\MAO\\html\\PC_Fanke\\mainwindow.html")
             });
         }else{
-            errorinfo(obj.errorMsg);
+            loginErrorInfo(obj.errorMs,"#ff0000");
         }
     },function (e) {
-        errorinfo("网络连接失败或服务器无响应!!!");
+        loginErrorInfo("网络连接失败或服务器无响应!","#ff0000");
     });
 
 }
 
 function toRegister() {
-    
+
+
+    var usernamesignup = $('#usernamesignup').val();
+    var nicknamesignup = $('#nicknamesignup').val();
+    var passwordsignup = $('#passwordsignup').val();
+    var passwordsignup_confirm = $('#passwordsignup_confirm').val();
+    var bTeacherCBox =$("#Teacher")[0].checked;
+    var bStudentCBox =$("#Student")[0].checked;
+
+    if(usernamesignup===""){
+        RegisterErrorInfo("用户名不能为空");
+        return;
+    }
+    var AllNumIsSame = new Array("’","”","!","#","$","%","^","&","*"," ","`","~","\\","/");
+    var IsTrueORfalse = false;
+    for (var i = 0; i < AllNumIsSame.length; i++) {
+        if (usernamesignup.indexOf(AllNumIsSame[i]) != -1) {
+            IsTrueORfalse = true;AllNumIsSame=null;
+            break;
+        }
+    }
+    if(IsTrueORfalse===true){
+        RegisterErrorInfo("用户名不能含有特殊字符(含空格)");
+        return;
+    }
+    if(nicknamesignup===""){
+        RegisterErrorInfo("昵称不能为空");
+        return;
+    }
+    if(passwordsignup===""){
+        RegisterErrorInfo("密码不能为空");
+        return;
+    }
+    if(passwordsignup_confirm===""){
+        RegisterErrorInfo("确认密码不能为空");
+        return;
+    }
+    if(passwordsignup!=passwordsignup_confirm) {
+        RegisterErrorInfo("2次输入的密码不一致");
+        return;
+    }
+    if(bTeacherCBox===false&&bStudentCBox===false){
+        RegisterErrorInfo("请选择您的身份");
+        return;
+    }
+
+    var utype="";
+    if(bTeacherCBox===true)utype="teacher";
+    if(bStudentCBox===true)utype="student";
+
+    var PostData="username="+usernamesignup+"&password="+passwordsignup+"&nickname="+nicknamesignup+"&utype="+utype;
+    ServerRuqest.register(PostData,function (x) {
+        var obj = JSON.parse(x);
+        if (obj.result === "1")
+        {
+            document.getElementById("to_register22").click();
+            loginErrorInfo("注册成功，赶紧登录吧！","#ffff00");
+
+        }else{
+            RegisterErrorInfo(obj.errorMsg);
+        }
+    },function (e) {
+        RegisterErrorInfo("网络连接失败或服务器无响应!");
+    });
+
+
 }

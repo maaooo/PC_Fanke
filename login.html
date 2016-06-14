@@ -31,11 +31,11 @@
                         <h1> 登 录 泛 课</h1>
                         <p>
                             <label for="username" class="uname" data-icon="u"> Your email or username </label>
-                            <input id="username" name="username" required type="text" onKeyDown="enterChange();" value="" placeholder="myusername or mymail@mail.com" />
+                            <input id="username" name="username" required type="text" onKeyDown="loginEnterChange();" value="" placeholder="myusername or mymail@mail.com" />
                         </p>
                         <p>
                             <label for="password" class="youpasswd" data-icon="p"> Your password </label>
-                            <input id="password" name="password" required type="password" onKeyDown="enterChange();" value="" placeholder="eg. X8df!90EO" />
+                            <input id="password" name="password" required type="password" onKeyDown="loginEnterChange();" value="" placeholder="eg. X8df!90EO" />
                         </p>
                         <p class="keeplogin">
                             <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
@@ -46,7 +46,7 @@
                              <input value="Login" type="button"  onClick="toLogin();" />
                         </p>
                         <p class="change_link">
-                            Not a member yet ?<a href="#toregister" class="to_register">Join us</a>
+                            Not a member yet ?<a href="#toregister" class="to_register22">Join us</a>
                         </p>
                         <p  >
                             <label id="loginInfo"></label>
@@ -59,32 +59,30 @@
                         <h1> 注 册 泛 课</h1>
                         <p>
                             <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-                            <input id="usernamesignup" name="usernamesignup" required type="text" placeholder="eg. Thomas" />
+                            <input id="usernamesignup" name="usernamesignup" required type="text" placeholder="eg. Thomas" onKeyDown="RegisterEnterChange();"/>
                         </p>
 
                         <p>
-                            <label for="emailsignup" class="youmail" data-icon="u"> Your nickname</label>
-                            <input id="emailsignup" name="emailsignup" required type="email" placeholder="eg. Tom" />
+                            <label for="nicknamesignup" class="youmail" data-icon="u"> Your nickname</label>
+                            <input id="nicknamesignup" name="nicknamesignup" required type="text" placeholder="eg. Tom" onKeyDown="RegisterEnterChange();"/>
                         </p>
                         <p>
                             <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
-                            <input id="passwordsignup" name="passwordsignup" required type="password" placeholder="eg. X8df!90EO" />
+                            <input id="passwordsignup" name="passwordsignup" required type="password" placeholder="eg. X8df!90EO" onKeyDown="RegisterEnterChange();"/>
                         </p>
                         <p>
                             <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-                            <input id="passwordsignup_confirm" name="passwordsignup_confirm" required type="password" placeholder="eg. X8df!90EO" />
+                            <input id="passwordsignup_confirm" name="passwordsignup_confirm" required type="password" placeholder="eg. X8df!90EO" onKeyDown="RegisterEnterChange();"/>
                         </p>
                         <p  >
                             <label  >Please select your identity </label>
                              <div id="selectIdentity">
-                                <input type="checkbox" name="Teacher" id="Teacher" value="loginkeeping" />
+                                <input type="checkbox" name="Teacher" id="Teacher" value="12" onchange="T_IdentityChange(this)" onclick="RegisterEnterChange();"/>
                                 <label for="Teacher" id="TeacherLabel">Teacher</label>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" name="Student" id="Student" value="loginkeeping" />
+                                <input type="checkbox" name="Student" id="Student" value="12" onchange="S_IdentityChange(this)" onclick="RegisterEnterChange();"/>
                                 <label for="Student" id="StudentLabel">Student</label>
                              </div>
-
-
                         </p>
 
                         <p class="signin button">
@@ -92,7 +90,10 @@
                         </p>
                         <p class="change_link">
                             Already a member ?
-                            <a href="#tologin" class="to_register"> Go and log in </a>
+                            <a href="#tologin" id="to_register22"> Go and log in </a>
+                        </p>
+                        <p  >
+                            <label id="registerInfo"></label>
                         </p>
                     </form>
                 </div>
