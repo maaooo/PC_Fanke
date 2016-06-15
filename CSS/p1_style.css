@@ -22,6 +22,7 @@
     bottom:0;
     overflow:auto;
     background:white;
+
 }
 
 #testBody2 {
@@ -57,38 +58,91 @@
     color:#3089CE;
 }
 
-#flex-item{
-    background-color:deepskyblue;
+#video_item{
+    background-color:transparent;
 
-    width:190px;
+    width:188px;
     height:180px;
     margin:5px;
-
+    -webkit-box-shadow: 1px 1px 5px #000000;
     float:left;
+    border-radius: 5px;
+    padding: 1px;
 }
 
-#div2{
+#video_item_head{
     text-align: center;
-    background-image:url(http://120.25.98.41/fanke/uploadFile/mp4_img/dxsgejy_xyjy.jpg);
-    background-size:cover;
+    background-color:black;
+     /*background-image:url(http://120.25.98.41/fanke/uploadFile/mp4_img/dxsgejy_xyjy.jpg);-*/
+    background-position:center;
+    background-size:contain;
+    background-repeat:no-repeat;
+    border-radius: 5px 5px 0px 0px;
     width:100%;
-    height:70%;
+    height:140px;
+
+
+
 }
-#img2{
+#video_item_head_img{
     background-image: url(../Image/weike_cover.png)  ;;
     background-repeat:no-repeat;
     background-position: center;
     background-size:70px auto;
     cursor: hand;
+    float:left;
     width:100%;
-    height:100%;
+    height:140px;
     z-index: 100;
+    border-radius: 5px 5px 0px 0px;
 }
 
-#div3{
-    background-color: darkkhaki;
-
+#video_item_info{
+    background-color: white;
+    float:left;
     width:100%;
-    height:100%;
+    height:40px;
     z-index: 101;
+    border-radius: 0px 0px 5px 5px;
+    cursor: hand;
+
+}
+#video_item_info_time{
+    font: 12px "微软雅黑", Arial, Helvetica, sans-serif,bold;
+    color:orange;
+    cursor: hand;
+}
+
+#video_item_info_title{
+    font: 12px "微软雅黑", Arial, Helvetica, sans-serif,bold;
+    color:black;
+    font-weight:bold;
+    cursor: hand;
+}
+
+#comment_view{
+    opacity: 0.973;
+    height:300px;
+    z-index: 400;
+    position: fixed;
+    width:100%;
+    bottom:0;
+    background:white;
+    color: black;
+    margin-bottom: -350px;
+
+}
+#comment_view:target{
+    color: black;
+    background: white;
+    transition: all .1s ease-in-out;
+    z-index: 401;
+    position: fixed;
+    bottom:0;
+    margin-bottom: 0px;
+}
+
+#video_item_info >a{
+    display: inline-block;
+    background: rgba(247, 248, 241,1);
 }

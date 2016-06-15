@@ -6,22 +6,18 @@
 
 
     <script>
+          function zeroize(value, length) {
+            if (!length) length = 2;
+            value = String(value);
+            for (var i = 0, zeros = ''; i < (length - value.length); i++) {
+                zeros += '0';
+            }
+            return zeros + value;
+        };
 
-        //var msg = "";
+
         $(document).ready(function (e) {
             sqldata.GetLoginData(callback_GetLoginData);
-            //msg = getCookie("loginData");
-           // var LoginData = JSON.parse(msg);
-          //  var WorksGoodList ;
-          /*
-            $.post("http://120.25.98.41/fanke/?mod=wetube&act=works_good_list", { uid: LoginData.data.uid, page: "1",max:"50" }, function (msg_wgl) {
-
-            });
-*/
-          
-
-
-          
         });
         var WorksGoodList ;
         function callback_GetLoginData(data) {
@@ -32,18 +28,21 @@
                 if(WorksGoodList.result==="1")
                 {
                    // var ddiv=document.getElementById("flex-item")
-                    for (i = 0; i < WorksGoodList.data.length; i++) {
-                        //console.log(WorksGoodList.data[i].downurl);
-                        //console.log(WorksGoodList.data[i].screenshot_s);
-                      //  var ddiv=document.getElementById("flex-item")
-                       // document.getElementById("testBody2").appendChild(ddiv);
-                        $("#testBody2").append("" +
-                                "<div id='flex-item'>" +
-                                    "<div id='div2' >"+
-                                        "<div id='img2'>"+
-                                    "</div>"+
-                                    "<div id='div3'>"+
+                    for (var i = 0; i < WorksGoodList.data.length; i++) {
 
+                        var dur=Number(WorksGoodList.data[i].duration);
+                        var newTime = new Date(dur);
+                        var time=zeroize(newTime.getMinutes())+":"+zeroize(newTime.getSeconds());
+
+                         $("#testBody2").append(
+                                "<div id='video_item'>" +
+                                    "<div id='video_item_head' style='background-image: url("+WorksGoodList.data[i].screenshot_s +")'>"+
+                                        "<div id='video_item_head_img'  >"+
+                                    "</div>"+
+                                    "<div id='video_item_info'  onclick='test();' >"+
+                                        "<a id='test2' href='#comment_view'></a>"+
+                                        "<p id='video_item_info_title'>"+WorksGoodList.data[i].title +"</p>"+
+                                        "<p id='video_item_info_time'>"+time +"</p>"+
                                     "</div>"+
                                 "</div>");
  /*                       $("#testBody2").prepend("" +
@@ -58,6 +57,11 @@
 
             });
 
+        }
+
+        function test() {
+            document.getElementById("test2").click();
+          //alert("test");
         }
 
         function tologin() {
@@ -87,15 +91,11 @@
         </div>
         <div id="testBody">
             <div id="testBody2">
-         <!--       <div  id="flex-item">
-                    <div class="head">
 
-                    </div>
-                    <div class="con">
-
-                    </div>
-                </div>-->
             </div>
+        </div>
+        <div id="comment_view">
+            <p>MAO22222222222222222222222222222222222222</p>
         </div>
         
     </div>
