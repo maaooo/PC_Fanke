@@ -39,7 +39,7 @@
                                     "<div id='video_item_head' style='background-image: url("+WorksGoodList.data[i].screenshot_s +")'>"+
                                         "<div id='video_item_head_img'  >"+
                                     "</div>"+
-                                    "<div id='video_item_info'  onclick='test();' >"+
+                                    "<div id='video_item_info'  onclick='test(" + i + "," + JSON.stringify(WorksGoodList.data[i])+");'>"+
                                         "<a id='test2' href='#comment_view'></a>"+
                                         "<p id='video_item_info_title'>"+WorksGoodList.data[i].title +"</p>"+
                                         "<p id='video_item_info_time'>"+time +"</p>"+
@@ -59,17 +59,28 @@
 
         }
 
-        function test() {
-            document.getElementById("test2").click();
-          //alert("test");
+        function test(index,data11) {
+            var obj=document.getElementById('comment_view');
+            if(obj.style.display==="")
+            {
+                obj.style.animation="openComment_view 0.3s forwards";
+                obj.style.display="block";
+                return;
+            }
+            if(obj.style.display==="block")
+            {
+                obj.style.animation="ResetComment_view 0.2s forwards";
+                obj.addEventListener("animationend", function () {
+                    obj.style.animation="ResetComment_view2 0.2s forwards";
+                });
+            }
+
         }
 
         function tologin() {
-            
             alert(msg);
             var obj = JSON.parse(msg);
             alert(obj.result);
-
         }
 
         function palyMP4()
@@ -95,7 +106,12 @@
             </div>
         </div>
         <div id="comment_view">
-            <p>MAO22222222222222222222222222222222222222</p>
+            <div id="commnet_content">
+                <p>The only way to get rid of a temptation is to yield to it. Resist it, and your soul grows sick with longing for the things it has
+                    forbidden to itself, with desire for what its monstrous laws have made monstrous and unlawful.</p>
+                <input  type="text"/>
+            </div>
+
         </div>
         
     </div>
