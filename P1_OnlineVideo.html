@@ -7,17 +7,16 @@
 
     <script>
           function zeroize(value, length) {
-            if (!length) length = 2;
-            value = String(value);
-            for (var i = 0, zeros = ''; i < (length - value.length); i++) {
-                zeros += '0';
-            }
-            return zeros + value;
-        };
-
+                if (!length) length = 2;
+                value = String(value);
+                for (var i = 0, zeros = ''; i < (length - value.length); i++) {
+                    zeros += '0';
+                }
+                return zeros + value;
+          };
 
         $(document).ready(function (e) {
-            sqldata.GetLoginData(callback_GetLoginData);
+                sqldata.GetLoginData(callback_GetLoginData);
         });
         var WorksGoodList ;
         function callback_GetLoginData(data) {
@@ -39,7 +38,7 @@
                                     "<div id='video_item_head' style='background-image: url("+WorksGoodList.data[i].screenshot_s +")'>"+
                                         "<div id='video_item_head_img'  >"+
                                     "</div>"+
-                                    "<div id='video_item_info'  onclick='test(" + i + "," + JSON.stringify(WorksGoodList.data[i])+");'>"+
+                                    "<div id='video_item_info'  onclick='ClickComment(" + i + "," + JSON.stringify(WorksGoodList.data[i])+");'>"+
                                         "<a id='test2' href='#comment_view'></a>"+
                                         "<p id='video_item_info_title'>"+WorksGoodList.data[i].title +"</p>"+
                                         "<p id='video_item_info_time'>"+time +"</p>"+
@@ -59,10 +58,12 @@
 
         }
 
-        function test(index,data11) {
+        function ClickComment(index,data) {
+            currVideoData=data;
             var obj=document.getElementById('comment_view');
             if(obj.style.display==="")
             {
+                runComment(data);
                 obj.style.animation="openComment_view 0.3s forwards";
                 obj.style.display="block";
                 return;
@@ -70,10 +71,68 @@
             if(obj.style.display==="block")
             {
                 obj.style.animation="ResetComment_view 0.2s forwards";
-                obj.addEventListener("animationend", function () {
+                function tttt() {
+                    obj.removeEventListener('animationend', tttt);
+                    runComment(data);
                     obj.style.animation="ResetComment_view2 0.2s forwards";
-                });
+                }
+                obj.addEventListener("animationend", tttt);
+
             }
+
+        }
+        var currVideoData;
+        function runComment(data) {
+          //  alert("runComment");
+          $('#commnet_content_write_title').html(data.title);
+            var PostData="vid="+data.vid+"&page="+"1"+"&max="+"50";
+
+            var CommentList;
+               ServerRuqest.comment_list(PostData, function (x) {
+                        CommentList = JSON.parse(x);
+                            if(CommentList.result==="1") {
+                              //  alert(CommentList.data.length);
+                                $("#commnet_content_read").empty();
+                                for (var i = 0; i < CommentList.data.length; i++) {
+                                    $("#commnet_content_read").append(
+                                            "<div id='commnet_list_data'>" +
+                                                "<img src='" + CommentList.data[i].head+ "'>" +"&nbsp;&nbsp;"+
+                                                    "<p>"+"&nbsp;&nbsp;"+"</p>"+
+                                                "<p id='commnet_list_data_nickname'>"+ CommentList.data[i].nickname+"&nbsp;&nbsp;"+"</p>"+
+
+                                                "<p>"+ CommentList.data[i].addtime+"&nbsp;&nbsp;"+"</p>"+
+                                                "<p>"+ CommentList.data[i].content+"</p>"+
+
+                                            "</div>"+"<hr id='commnet_list_hr'/>"
+
+                                    );
+                                }
+                            }
+                            if(CommentList.result==="1009"){
+                                $("#commnet_content_read").empty();
+                            }
+                    }
+                    ,function () {
+
+                    });
+
+        }
+        function SendComment() {
+
+            var text = $('#commnet_content_write_intext').val();
+            if(text==="")return;
+            var PostData="uid="+currVideoData.uid+"&vid="+currVideoData.vid+"&content="+text;
+
+            ServerRuqest.works_comments(PostData,function (x) {
+               var Rus = JSON.parse(x);
+                if(Rus.result==="1") {
+                    alert("runComment=3");
+                    runComment(currVideoData);
+
+                }
+            },function () {
+
+            });
 
         }
 
@@ -86,9 +145,16 @@
         function palyMP4()
         {
             send_message('PlayMP4');
+          }
+        function runJPKC() {
+            $("#JPKC").css("color", "#3089CE");
+            $("#SSFX").css("color", "#99A7AF");
+
+        }y
+        function runSSFX() {
+            $("#SSFX").css("color", "#3089CE");
+            $("#JPKC").css("color", "#99A7AF");
         }
- 
- 
  
     </script>
 </head>
@@ -97,8 +163,8 @@
 
     <div id="nbody">
         <div id="HeadBody">
-            <a id="JPKC">精品课程</a>
-            <a id="SSFX">师生分享</a>
+            <a id="JPKC" onclick="runJPKC();">精品课程</a>
+            <a id="SSFX" onclick="runSSFX();">师生分享</a>
         </div>
         <div id="testBody">
             <div id="testBody2">
@@ -107,9 +173,15 @@
         </div>
         <div id="comment_view">
             <div id="commnet_content">
-                <p>The only way to get rid of a temptation is to yield to it. Resist it, and your soul grows sick with longing for the things it has
-                    forbidden to itself, with desire for what its monstrous laws have made monstrous and unlawful.</p>
-                <input  type="text"/>
+                <div id="commnet_content_write">
+                    <p id="commnet_content_write_title">评论区</p>
+                    <input id="commnet_content_write_intext"  type="text" placeholder="写评论"/>
+                    <input  type="button" value="提交" onclick="SendComment();"/>
+                </div>
+                <div id="commnet_content_read">
+
+                </div>
+
             </div>
 
         </div>

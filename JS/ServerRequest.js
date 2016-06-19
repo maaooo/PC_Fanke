@@ -39,6 +39,16 @@ var ServerData ={
             var url=ServerData.requestUrl+"works_good_list";
             this.quest(url,data,callbackOK,callbackError);
         }
+        serverdata.comment_list = function(data,callbackOK,callbackError) {//评论列表
+            var url=ServerData.requestUrl+"comment_list";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.works_comments = function(data,callbackOK,callbackError) {//微课评论
+            var url=ServerData.requestUrl+"works_comments";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+
+
 
 
         return serverdata;
