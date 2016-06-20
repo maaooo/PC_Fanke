@@ -19,8 +19,10 @@
                 sqldata.GetLoginData(callback_GetLoginData);
         });
         var WorksGoodList ;
+          var myUID;
         function callback_GetLoginData(data) {
             var uid=data.rows.item(0).uid;
+            myUID=uid;
             var PostData="uid="+uid+"&page="+"1"+"&max="+"50";
             ServerRuqest.works_good_list(PostData,function (x) {
                 WorksGoodList = JSON.parse(x);
@@ -36,7 +38,7 @@
                          $("#testBody2").append(
                                 "<div id='video_item'>" +
                                     "<div id='video_item_head' style='background-image: url("+WorksGoodList.data[i].screenshot_s +")'>"+
-                                        "<div id='video_item_head_img'  >"+
+                                        "<div id='video_item_head_img'  onclick='palyMP4("+JSON.stringify(WorksGoodList.data[i]) + ")'>"+
                                     "</div>"+
                                     "<div id='video_item_info'  onclick='ClickComment(" + i + "," + JSON.stringify(WorksGoodList.data[i])+");'>"+
                                         "<a id='test2' href='#comment_view'></a>"+
@@ -121,14 +123,14 @@
 
             var text = $('#commnet_content_write_intext').val();
             if(text==="")return;
-            var PostData="uid="+currVideoData.uid+"&vid="+currVideoData.vid+"&content="+text;
+            var PostData="uid="+myUID+"&vid="+currVideoData.vid+"&content="+text;
 
             ServerRuqest.works_comments(PostData,function (x) {
                var Rus = JSON.parse(x);
                 if(Rus.result==="1") {
-                    alert("runComment=3");
+                    //alert("runComment=3");
                     runComment(currVideoData);
-
+                    document.getElementById("commnet_content_write_intext").value="";
                 }
             },function () {
 
@@ -142,15 +144,16 @@
             alert(obj.result);
         }
 
-        function palyMP4()
+        function palyMP4(x)
         {
-            send_message('PlayMP4');
-          }
+            send_message('PlayMp4',x.downurl);
+            //alert(x.downurl);
+        }
         function runJPKC() {
             $("#JPKC").css("color", "#3089CE");
             $("#SSFX").css("color", "#99A7AF");
 
-        }y
+        }
         function runSSFX() {
             $("#SSFX").css("color", "#3089CE");
             $("#JPKC").css("color", "#99A7AF");

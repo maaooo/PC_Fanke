@@ -18,6 +18,13 @@ function winClose() {
     send_message('WinClose');
 
 }
+
+function showWin() {
+    send_message('ShowWin');
+
+}
+
+
 var sqldata={};
 var ServerRuqest={};
 $(document).ready(function (e) {
@@ -28,10 +35,12 @@ $(document).ready(function (e) {
     ServerRuqest=ServerData.createServer();
 
     sqldata.QueryLoginTable(GetOldLoginData);
+    showWin();
 
 });
 
 function GetOldLoginData(Data) {//callbaclk
+    if(Data==null)return;
     var obj = JSON.parse(Data);
    // alert(typeof(obj.isSave));
     document.getElementById("username").value=obj.name;
@@ -89,7 +98,7 @@ function toLogin() {
         {
             sqldata.InsertLoginTable(username,password,loginkeeping);
             sqldata.UpdataLoginTable(username,x,function () {
-                window.location.assign("file:///C:\\PC_Fanke\\mainwindow.html")
+                window.location.assign("file:///PC_Fanke\\mainwindow.html")
             });
         }else{
             loginErrorInfo(obj.errorMs,"#ff0000");

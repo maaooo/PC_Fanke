@@ -56,6 +56,10 @@ var SQlData ={
                 tx.executeSql(
                     "select  * from login order by id desc limit 0,1", [],
                     function (tx, result) {
+
+                        if(result.rows.length==0) {
+                            callbalck(null);return;
+                        }
                         var mao=new Object();
                         mao.name=result.rows.item(0).Loginusername;
                         mao.pw=result.rows.item(0).loginpassword;
