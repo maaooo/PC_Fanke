@@ -47,7 +47,10 @@ var ServerData ={
             var url=ServerData.requestUrl+"works_comments";
             this.quest(url,data,callbackOK,callbackError);
         }
-
+        serverdata.works_share_list = function(data,callbackOK,callbackError) {//师生分享列表
+            var url=ServerData.requestUrl+"works_share_list";
+            this.quest(url,data,callbackOK,callbackError);
+        }
 
 
 

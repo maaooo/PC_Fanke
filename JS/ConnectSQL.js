@@ -8,8 +8,13 @@ var SQlData ={
     dataBase:{},
     createNew:function () {
         var sqldata={};
-
-        dataBase=openDatabase("login", "1.0", "登入保存表", 1024 * 1024, function () { });
+try {
+    dataBase = window.openDatabase("login", "1.0", "登入保存表", 1024 * 1024, function () {
+    });
+}catch (err)
+{
+    alert(err.message);
+}
 
         sqldata.CreateLoginTable = function () {
             dataBase.transaction( function(tx) {

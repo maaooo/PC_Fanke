@@ -2,11 +2,8 @@
 <head>
     <title>Other Tests</title>
     <link rel="stylesheet" type="text/css" href="CSS/p1_style.css" />
-
-
-
     <script>
-          function zeroize(value, length) {
+        function zeroize(value, length) {
                 if (!length) length = 2;
                 value = String(value);
                 for (var i = 0, zeros = ''; i < (length - value.length); i++) {
@@ -16,11 +13,16 @@
           };
 
         $(document).ready(function (e) {
-                sqldata.GetLoginData(callback_GetLoginData);
+                runJPKC();
         });
+
+        var WorksShareList ;
         var WorksGoodList ;
-          var myUID;
-        function callback_GetLoginData(data) {
+        var myUID;
+        var currVideoData;
+
+        function GetJPKC_list(data) {
+            $("#testBody2").empty();
             var uid=data.rows.item(0).uid;
             myUID=uid;
             var PostData="uid="+uid+"&page="+"1"+"&max="+"50";
@@ -46,18 +48,47 @@
                                         "<p id='video_item_info_time'>"+time +"</p>"+
                                     "</div>"+
                                 "</div>");
- /*                       $("#testBody2").prepend("" +
-                                "<div class=\"flex-item\">" +
-                                    "<a href=\"  " + WorksGoodList.data[i].downurl + "\" >播放</a> " +
-                                    "<img class=\"item-screenshot\" src=\" "+WorksGoodList.data[i].screenshot_s+" \">"+
-                                    "<input value=\"提交\" type=\"button\" onclick=\"palyMP4();\" /> " +
-                                "</div>");*/
+
                     }
                 }
             },function () {
 
             });
 
+        }
+
+        function GetSSFX_list() {
+            $("#testBody2").empty();
+
+            var PostData="uid="+myUID+"&page="+"1"+"&max="+"50";
+            ServerRuqest.works_share_list(PostData,function (x) {
+                WorksShareList = JSON.parse(x);
+                if(WorksShareList.result==="1")
+                {
+                    // var ddiv=document.getElementById("flex-item")
+                    for (var i = 0; i < WorksShareList.data.length; i++) {
+
+                        var dur=Number(WorksShareList.data[i].duration);
+                        var newTime = new Date(dur);
+                        var time=zeroize(newTime.getMinutes())+":"+zeroize(newTime.getSeconds());
+
+                        $("#testBody2").append(
+                                "<div id='video_item'>" +
+                                "<div id='video_item_head' style='background-image: url("+WorksShareList.data[i].screenshot_s +")'>"+
+                                "<div id='video_item_head_img'  onclick='palyMP4("+JSON.stringify(WorksShareList.data[i]) + ")'>"+
+                                "</div>"+
+                                "<div id='video_item_info'  onclick='ClickComment(" + i + "," + JSON.stringify(WorksShareList.data[i])+");'>"+
+                                "<a id='test2' href='#comment_view'></a>"+
+                                "<p id='video_item_info_title'>"+WorksShareList.data[i].title +"</p>"+
+                                "<p id='video_item_info_time'>"+time +"</p>"+
+                                "</div>"+
+                                "</div>");
+
+                    }
+                }
+            },function () {
+
+            });
         }
 
         function ClickComment(index,data) {
@@ -83,7 +114,7 @@
             }
 
         }
-        var currVideoData;
+
         function runComment(data) {
           //  alert("runComment");
           $('#commnet_content_write_title').html(data.title);
@@ -119,6 +150,7 @@
                     });
 
         }
+
         function SendComment() {
 
             var text = $('#commnet_content_write_intext').val();
@@ -144,19 +176,22 @@
             alert(obj.result);
         }
 
-        function palyMP4(x)
-        {
+        function palyMP4(x) {
             send_message('PlayMp4',x.downurl);
             //alert(x.downurl);
         }
+
         function runJPKC() {
             $("#JPKC").css("color", "#3089CE");
             $("#SSFX").css("color", "#99A7AF");
+            sqldata.GetLoginData(GetJPKC_list);
 
         }
+
         function runSSFX() {
             $("#SSFX").css("color", "#3089CE");
             $("#JPKC").css("color", "#99A7AF");
+            GetSSFX_list();
         }
  
     </script>
