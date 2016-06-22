@@ -1,4 +1,4 @@
-#nbody {
+#nbody2 {
     position: absolute;
     left: 0;
     top: 0;
@@ -6,7 +6,7 @@
     bottom: 0;
 }
 
-#HeadBody {
+#HeadBody2 {
     position: absolute;
     left: 0;
     top: 0 ;
@@ -15,7 +15,7 @@
     background-color:#2F3D44;
 }
 
-#testBody {
+#testBody2 {
     position: absolute;
     left: 0;
     top: 35px ;
@@ -25,7 +25,7 @@
     background:white;
 }
 
-#testBody2 {
+#testBody4 {
     position: absolute;
     left: 0;
     top: 0 ;
@@ -62,14 +62,14 @@
 
 
 
-#HeadBody a:hover {
+#HeadBody2 a:hover {
     color:#3089CE;
 }
-#HeadBody a:active {
+#HeadBody2 a:active {
     color:#3089CE;
 }
 
-#video_item{
+#video_item2{
     background-color:transparent;
 
     width:188px;
@@ -81,7 +81,7 @@
     padding: 1px;
 }
 
-#video_item_head{
+#video_item_head2{
     text-align: center;
     background-color:black;
     /*background-image:url(http://120.25.98.41/fanke/uploadFile/mp4_img/dxsgejy_xyjy.jpg);-*/
@@ -95,7 +95,7 @@
 
 
 }
-#video_item_head_img{
+#video_item_head_img2{
     background-image: url(../Image/weike_cover.png)  ;;
     background-repeat:no-repeat;
     background-position: center;
@@ -108,7 +108,7 @@
     border-radius: 5px 5px 0px 0px;
 }
 
-#video_item_info{
+#video_item_info2{
     background-color: white;
     float:left;
     width:100%;
@@ -118,20 +118,20 @@
     cursor: hand;
 
 }
-#video_item_info_time{
+#video_item_info_time2{
     font: 12px "微软雅黑", Arial, Helvetica, sans-serif,bold;
     color:orange;
     cursor: hand;
 }
 
-#video_item_info_title{
+#video_item_info_title2{
     font: 12px "微软雅黑", Arial, Helvetica, sans-serif,bold;
     color:black;
     font-weight:bold;
     cursor: hand;
 }
 
-#comment_view{
+#comment_view2{
     opacity: 1;
     height:300px;
     z-index: 400;
@@ -144,7 +144,7 @@
     margin-bottom: -350px
 
 }
-#commnet_content {
+#commnet_content2 {
     opacity: 1;
     margin-left:auto;
     margin-right:auto;
@@ -158,14 +158,14 @@
     filter:blur(10px);
 }
 
-#commnet_content_write{
+#commnet_content_write2{
     border-radius: 5px 5px 0 0;
     opacity: 1;
     width:100%;
     height:100px;
     background:lightblue;
 }
-#commnet_content_read{
+#commnet_content_read2{
 
     overflow:auto;
     top:100px;
@@ -176,14 +176,14 @@
 }
 
 
-#commnet_list_data{
+#commnet_list_data2{
     float: left;
     width:100%;
     height:50px;
 
 }
 
-#commnet_list_hr {
+#commnet_list_hr2 {
 
     width:100%;
     height:1px;
@@ -192,15 +192,15 @@
 
 }
 
-#commnet_list_data p{
+#commnet_list_data2 p{
     float: left;
 
 }
-#commnet_list_data_nickname{
+#commnet_list_data_nickname2{
     float: left;
     color: blue;
 }
-#commnet_list_data img{
+#commnet_list_data2 img{
     float: left;
     width: 50px;
     height: 50px;

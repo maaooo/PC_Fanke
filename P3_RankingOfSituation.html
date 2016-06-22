@@ -2,98 +2,32 @@
 <head>
     <title>Other Tests</title>
     <link rel="stylesheet" type="text/css" href="CSS/p3_style.css" />
-    <script src="JS/mainwindow.js"></script>
-    <script>
-        $(document).ready(function (e) {
-           // runXJKC();
-            sqldata.GetLoginData(GetXJKC_list);
-        });
-        var WorksShareList ;
-        var WorksGoodList ;
-        var myUID;
-        var currVideoData;
 
-
-        function GetXJKC_list(data){
-            $("#testBody2").empty();
-            var uid=data.rows.item(0).uid;
-            myUID=uid;
-            alert(myUID);
-            var PostData="uid="+uid+"&page="+"1"+"&max="+"50";
-            ServerRuqest.works_good_list(PostData,function (x) {
-                WorksGoodList = JSON.parse(x);
-                if(WorksGoodList.result==="1")
-                {
-                    // var ddiv=document.getElementById("flex-item")
-                    for (var i = 0; i < WorksGoodList.data.length; i++) {
-
-                        var dur=Number(WorksGoodList.data[i].duration);
-                        var newTime = new Date(dur);
-                        var time=zeroize(newTime.getMinutes())+":"+zeroize(newTime.getSeconds());
-
-                        $("#testBody2").append(
-                                "<div id='video_item'>" +
-                                "<div id='video_item_head' style='background-image: url("+WorksGoodList.data[i].screenshot_s +")'>"+
-                                "<div id='video_item_head_img'  onclick='palyMP4("+JSON.stringify(WorksGoodList.data[i]) + ")'>"+
-                                "</div>"+
-                                "<div id='video_item_info'  onclick='ClickComment(" + i + "," + JSON.stringify(WorksGoodList.data[i])+");'>"+
-                                "<a id='test2' href='#comment_view'></a>"+
-                                "<p id='video_item_info_title'>"+WorksGoodList.data[i].title +"</p>"+
-                                "<p id='video_item_info_time'>"+time +"</p>"+
-                                "</div>"+
-                                "</div>");
-
-                    }
-                }
-            },function () {
-
-            });
-        }
-
-
-        function runXJKC() {
-            //alert("ok");
-            $("#XJKC").css("color", "#fff000");
-            //$("#MSDH").css("color", "#99A7AF");
-            //$("#XBYF").css("color", "#99A7AF");
-           // alert("ok");
-        }
-        function runMSDH() {
-            $("#MSDH").css("color", "#3089CE");
-            $("#XJKC").css("color", "#99A7AF");
-            $("#XBYF").css("color", "#99A7AF");
-        }
-        function runSBYF() {
-            $("#XBYF").css("color", "#3089CE");
-            $("#XJKC").css("color", "#99A7AF");
-            $("#MSDH").css("color", "#99A7AF");
-        }
-    </script>
 </head>
 
 
 <body>
 
 
-<div id="nbody">
-    <div id="HeadBody">
+<div id="nbody2">
+    <div id="HeadBody2">
         <a id="XJKC" onclick="runXJKC();">星级课程</a>
         <a id="MSDH" onclick="runMSDH();">名师导航</a>
         <a id="XBYF" onclick="runSBYF();">学霸一方</a>
     </div>
-    <div id="testBody">
-        <div id="testBody2">
-<p>www</p>
+    <div id="testBody2">
+        <div id="testBody4">
+
         </div>
     </div>
-    <div id="comment_view">
-        <div id="commnet_content">
-            <div id="commnet_content_write">
-                <p id="commnet_content_write_title">评论区</p>
-                <input id="commnet_content_write_intext"  type="text" placeholder="写评论"/>
+    <div id="comment_view2">
+        <div id="commnet_content2">
+            <div id="commnet_content_write2">
+                <p id="commnet_content_write_title2">评论区</p>
+                <input id="commnet_content_write_intext2"  type="text" placeholder="写评论"/>
                 <input  type="button" value="提交" onclick="SendComment();"/>
             </div>
-            <div id="commnet_content_read">
+            <div id="commnet_content_read2">
 
             </div>
 

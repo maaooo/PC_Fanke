@@ -91,6 +91,9 @@ function toLogin() {
         loginErrorInfo("用户名或密码不能为空","#ff0000");
         return;
     }
+
+
+
     var PostData="username="+username+"&password="+password;
     ServerRuqest.login(PostData,function (x) {
         var obj = JSON.parse(x);

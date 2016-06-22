@@ -73,12 +73,22 @@ var SidebarTabHandler = {
             $(this).find("a").addClass("tabItemCurrent");
             $(this).find("a").css("color", "#fff");//设置新颜色
             $($(".tabBodyItem")[$(this).index()]).addClass("tabBodyCurrent");
-
+            $.ajaxSetup ({
+                cache: false //关闭AJAX相应的缓存
+            });
             var index = $(this).index();
-            if (index === 0) $(".tabBodyItem").load("P1_OnlineVideo.html");
-            if (index === 1) $(".tabBodyItem").load("P2_CurriculumCommunity.html");
-            if (index === 2) $(".tabBodyItem").load("P3_RankingOfSituation.html");
-            if (index === 3) $(".tabBodyItem").load("P4_PersonalCenter.html");
+            if (index === 0){ $(".tabBodyItem").load("P1_OnlineVideo.html " ,function (response, status, xhr) {
+               // runJPKC();
+                alert(status);
+            });}//P1_OnlineVideo.html
+        /*    if (index === 1) $(".tabBodyItem").load("P2_CurriculumCommunity.html ",function (response, status, xhr) {
+
+            });
+            if (index === 2) {$(".tabBodyItem").load("P3_RankingOfSituation.html #nbody2",function (response, status, xhr) {
+                //runXJKC();
+                alert(status);
+            });}
+            if (index === 3) $(".tabBodyItem").load("P4_PersonalCenter.html");*/
         });
     }
 }
