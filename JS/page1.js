@@ -14,13 +14,17 @@ function zeroize(value, length) {
     runJPKC();
 });
 */
+
+
 var WorksShareList ;
 var WorksGoodList ;
 var myUID;
 var currVideoData;
 
+ 
+
 function GetJPKC_list(data) {
-    $("#testBody2").empty();
+    $("#content1").empty();
     var uid=data.rows.item(0).uid;
     myUID=uid;
     var PostData="uid="+uid+"&page="+"1"+"&max="+"50";
@@ -35,16 +39,16 @@ function GetJPKC_list(data) {
                 var newTime = new Date(dur);
                 var time=zeroize(newTime.getMinutes())+":"+zeroize(newTime.getSeconds());
 
-                $("#testBody2").append(
+                $("#content1").append(
                     "<div id='video_item'>" +
-                    "<div id='video_item_head' style='background-image: url("+WorksGoodList.data[i].screenshot_s +")'>"+
-                    "<div id='video_item_head_img'  onclick='palyMP4("+JSON.stringify(WorksGoodList.data[i]) + ")'>"+
-                    "</div>"+
-                    "<div id='video_item_info'  onclick='ClickComment(" + i + "," + JSON.stringify(WorksGoodList.data[i])+");'>"+
-                    "<a id='test2' href='#comment_view'></a>"+
-                    "<p id='video_item_info_title'>"+WorksGoodList.data[i].title +"</p>"+
-                    "<p id='video_item_info_time'>"+time +"</p>"+
-                    "</div>"+
+                        "<div id='video_item_head' style='background-image: url("+WorksGoodList.data[i].screenshot_s +")'>"+
+                        "<div id='video_item_head_img'  onclick='palyMP4("+JSON.stringify(WorksGoodList.data[i]) + ")'>"+
+                     "</div>"+
+                     "<div id='video_item_info'  onclick='ClickComment(" + i + "," + JSON.stringify(WorksGoodList.data[i])+");'>"+
+                        "<a id='test2' href='#comment_view'></a>"+
+                        "<p id='video_item_info_title'>"+WorksGoodList.data[i].title +"</p>"+
+                        "<p id='video_item_info_time'>"+time +"</p>"+
+                        "</div>"+
                     "</div>");
 
             }
@@ -56,7 +60,7 @@ function GetJPKC_list(data) {
 }
 
 function GetSSFX_list() {
-    $("#testBody2").empty();
+    $("#content1").empty();
 
     var PostData="uid="+myUID+"&page="+"1"+"&max="+"50";
     ServerRuqest.works_share_list(PostData,function (x) {
@@ -70,7 +74,7 @@ function GetSSFX_list() {
                 var newTime = new Date(dur);
                 var time=zeroize(newTime.getMinutes())+":"+zeroize(newTime.getSeconds());
 
-                $("#testBody2").append(
+                $("#content1").append(
                     "<div id='video_item'>" +
                     "<div id='video_item_head' style='background-image: url("+WorksShareList.data[i].screenshot_s +")'>"+
                     "<div id='video_item_head_img'  onclick='palyMP4("+JSON.stringify(WorksShareList.data[i]) + ")'>"+

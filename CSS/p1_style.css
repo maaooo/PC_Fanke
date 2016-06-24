@@ -1,20 +1,4 @@
-#nbody{
-    position: absolute;
-    left: 0;
-    top: 0 ;
-    width:100%;
-    bottom:0;
-
-}
-#HeadBody{
-    position: absolute;
-    left: 0;
-    top: 0 ;
-    width:100%;
-    height: 35px;
-    background-color:#2F3D44;
-}
-#testBody{
+.contentBody{
     position: absolute;
     left: 0;
     top: 35px ;
@@ -24,8 +8,16 @@
     background:white;
 
 }
+/*.nbody{
+    position: absolute;
+    left: 0;
+    top: 0 ;
+    width:100%;
+    bottom:0;
 
-#testBody2 {
+}*/
+
+#content1{
     position: absolute;
     left: 0;
     top: 0 ;
@@ -36,28 +28,6 @@
     height: 100%;
     background-color:white;
 }
-#JPKC{      /*精品课程*/
-    position: absolute;
-    left: 88px;
-    top: 7px ;
-    font: 14px "微软雅黑", Arial, Helvetica, sans-serif,bold;
-    color:#99A7AF;
-}
-#SSFX{     /*师生分享*/
-    position: absolute;
-    left: 157px;
-    top: 7px ;
-    font: 14px "微软雅黑", Arial, Helvetica, sans-serif,bold;
-    color:#99A7AF;
-}
-
-#HeadBody a:hover {
-    color:#3089CE;
-}
-#HeadBody a:active {
-    color:#3089CE;
-}
-
 #video_item{
     background-color:transparent;
 
@@ -73,7 +43,7 @@
 #video_item_head{
     text-align: center;
     background-color:black;
-     /*background-image:url(http://120.25.98.41/fanke/uploadFile/mp4_img/dxsgejy_xyjy.jpg);-*/
+
     background-position:center;
     background-size:contain;
     background-repeat:no-repeat;
@@ -119,6 +89,68 @@
     font-weight:bold;
     cursor: hand;
 }
+/*
+#nbody{
+    position: absolute;
+    left: 0;
+    top: 0 ;
+    width:100%;
+    bottom:0;
+
+}
+#HeadBody{
+    position: absolute;
+    left: 0;
+    top: 0 ;
+    width:100%;
+    height: 35px;
+    background-color:#2F3D44;
+}
+#testBody{
+    position: absolute;
+    left: 0;
+    top: 35px ;
+    width:100%;
+    bottom:0;
+    overflow:auto;
+    background:white;
+
+}
+
+#testBody2 {
+    position: absolute;
+    left: 0;
+    top: 0 ;
+    display:inline-block;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    width:100%;
+    height: 100%;
+    background-color:white;
+}
+#JPKC{
+    position: absolute;
+    left: 88px;
+    top: 7px ;
+    font: 14px "微软雅黑", Arial, Helvetica, sans-serif,bold;
+    color:#99A7AF;
+}
+#SSFX{
+    position: absolute;
+    left: 157px;
+    top: 7px ;
+    font: 14px "微软雅黑", Arial, Helvetica, sans-serif,bold;
+    color:#99A7AF;
+}
+
+#HeadBody a:hover {
+    color:#3089CE;
+}
+#HeadBody a:active {
+    color:#3089CE;
+}
+
+
 
 #comment_view{
     opacity: 1;
@@ -215,19 +247,5 @@
     100%{margin-bottom: 0px;}
 }
 
-/*
-#comment_view:target{
-    color: black;
-    background: white;
-    transition: all .1s ease-in-out;
-    z-index: 401;
-    position: fixed;
-    bottom:0;
-    margin-bottom: 0px;
-}
 
-#video_item_info >a{
-    display: inline-block;
-    background: rgba(247, 248, 241,1);
-}
 */

@@ -51,6 +51,14 @@ var ServerData ={
             var url=ServerData.requestUrl+"works_share_list";
             this.quest(url,data,callbackOK,callbackError);
         }
+        serverdata.works_star_list = function(data,callbackOK,callbackError) {//星级课程列表
+            var url=ServerData.requestUrl+"works_star_list";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.user_rank = function(data,callbackOK,callbackError) {//星级课程列表
+            var url=ServerData.requestUrl+"user_rank";
+            this.quest(url,data,callbackOK,callbackError);
+        }
 
 
 
