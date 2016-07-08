@@ -227,25 +227,7 @@
     </style>
 
     <script src="JS/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript">
-        function send_message(test, params) {
-            var message = 'WindowTest.' + test;
-            if (typeof params != 'undefined')
-                message += ':' + params;
-            window.cefQuery({ 'request': message });
-        }
 
-        function minimize() {
-            send_message('Minimize');
-        }
-        function maximize() {
-            send_message('Maximize');
-        }
-        function winClose() {
-            send_message('WinClose');
-        }
-
-    </script>
     <script type="text/javascript">
         function tab(o, s, cb, ev) { //tab切换类
             var $ = function(o) {
@@ -313,6 +295,30 @@
     </script>
     <script type="text/javascript" src="JS/page1.js"></script>
     <script type="text/javascript" src="JS/page3.js"></script>
+    <script type="text/javascript">
+        function send_message(test, params) {
+            var message = 'WindowTest.' + test;
+            if (typeof params != 'undefined')
+                message += ':' + params;
+            window.cefQuery({ 'request': message });
+        }
+
+        function minimize() {
+            send_message('Minimize');
+        }
+        function maximize() {
+            send_message('Maximize');
+        }
+        function winClose() {
+            send_message('WinClose');
+        }
+        function recordVideo() {
+            send_message('RecordVideo',myUID);
+        }
+       // function playVideo(url) {
+        //    send_message('playVideo',url);
+       // }
+    </script>
     <script type="text/javascript">
         window.onload = function() {
             new tab('test2_li_now_', '_', function() {

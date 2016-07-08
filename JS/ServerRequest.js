@@ -2,7 +2,7 @@
  * Created by MAO YANG on 6/13/2016.
  */
 var ServerData ={
-    requestUrl:"http://120.25.98.41/fanke/?mod=wetube&act=",//&act=login
+    requestUrl:"http://120.25.98.41/fanke/?mod=wetube&kind=pc&act=",//&act=login
     createServer:function () {
         var serverdata={};
         serverdata.quest=function (url,data,callbackOK,callbackError) {
@@ -35,7 +35,7 @@ var ServerData ={
             var url=ServerData.requestUrl+"register";
             this.quest(url,data,callbackOK,callbackError);
         }
-        serverdata.works_good_list = function(data,callbackOK,callbackError) {
+        serverdata.works_good_list = function(data,callbackOK,callbackError) {//精品课程列表
             var url=ServerData.requestUrl+"works_good_list";
             this.quest(url,data,callbackOK,callbackError);
         }
@@ -55,7 +55,7 @@ var ServerData ={
             var url=ServerData.requestUrl+"works_star_list";
             this.quest(url,data,callbackOK,callbackError);
         }
-        serverdata.user_rank = function(data,callbackOK,callbackError) {//星级课程列表
+        serverdata.user_rank = function(data,callbackOK,callbackError) {//用户排行列表
             var url=ServerData.requestUrl+"user_rank";
             this.quest(url,data,callbackOK,callbackError);
         }

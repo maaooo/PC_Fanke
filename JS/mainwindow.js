@@ -45,10 +45,7 @@ function position() {
         send_message('Position', x + ',' + y + ',' + width + ',' + height);
 }
 
-function recordVideo() {
-
-}
-
+ 
 
 var sqldata={};
 var ServerRuqest={};

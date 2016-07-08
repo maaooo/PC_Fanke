@@ -42,7 +42,7 @@ function GetJPKC_list(data) {
                 $("#content1").append(
                     "<div id='video_item'>" +
                         "<div id='video_item_head' style='background-image: url("+WorksGoodList.data[i].screenshot_s +")'>"+
-                        "<div id='video_item_head_img'  onclick='palyMP4("+JSON.stringify(WorksGoodList.data[i]) + ")'>"+
+                        "<div id='video_item_head_img'  onclick='palyVideo("+JSON.stringify(WorksGoodList.data[i]) + ")'>"+
                      "</div>"+
                      "<div id='video_item_info'  onclick='ClickComment(" + i + "," + JSON.stringify(WorksGoodList.data[i])+");'>"+
                         "<a id='test2' href='#comment_view'></a>"+
@@ -62,7 +62,7 @@ function GetJPKC_list(data) {
 function GetSSFX_list() {
     $("#content1").empty();
 
-    var PostData="uid="+myUID+"&page="+"1"+"&max="+"50";
+    var PostData="uid="+myUID+"&page="+"1"+"&max="+"50";//VmkxarIIilQm6
     ServerRuqest.works_share_list(PostData,function (x) {
         WorksShareList = JSON.parse(x);
         if(WorksShareList.result==="1")
@@ -77,7 +77,7 @@ function GetSSFX_list() {
                 $("#content1").append(
                     "<div id='video_item'>" +
                     "<div id='video_item_head' style='background-image: url("+WorksShareList.data[i].screenshot_s +")'>"+
-                    "<div id='video_item_head_img'  onclick='palyMP4("+JSON.stringify(WorksShareList.data[i]) + ")'>"+
+                    "<div id='video_item_head_img'  onclick='palyVideo("+JSON.stringify(WorksShareList.data[i]) +  ")'>"+
                     "</div>"+
                     "<div id='video_item_info'  onclick='ClickComment(" + i + "," + JSON.stringify(WorksShareList.data[i])+");'>"+
                     "<a id='test2' href='#comment_view'></a>"+
@@ -178,9 +178,21 @@ function tologin() {
     alert(obj.result);
 }
 
-function palyMP4(x) {
-    send_message('PlayMp4',x.downurl);
-    //alert(x.downurl);
+function palyVideo(data) {
+    if(data.type==="mp4")
+        send_message('PlayMp4',data.downurl);
+    if(data.type==="video")
+        //position()
+       send_message('PlayVideo',data.downurl+','+data.weburl);
+}
+
+function position() {
+    var x = 1;
+    var y = 2;
+    var width = 500;
+    var height = 300;
+
+    send_message('Position', x + ',' + y + ',' + width + ',' + height);
 }
 
 function runJPKC() {
