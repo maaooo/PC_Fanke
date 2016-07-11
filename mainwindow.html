@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="CSS/p1_style.css" />
     <link rel="stylesheet" type="text/css" href="CSS/p3_style.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/p4_style.css" />
     <title>华大泛课</title>
     <style>
         *{
@@ -171,12 +172,22 @@
             bottom: 35px;
             display: none;
         }
+        #comment{
+
+
+            float: left;
+            height: 50px;
+            width: 100%;
+            display: block;
+
+            background-color:Red;
+        }
         .block {
             display: block;
         }
         #test2_1{
-            background: #ffffff;
-            color: #ffffff;
+            background: white;
+            color: white;
         }
         #test2_2{
             background: #f1af37;
@@ -224,6 +235,8 @@
             height: 100%;
             background-color:white;
         }
+
+
     </style>
 
     <script src="JS/jquery-2.2.4.min.js"></script>
@@ -295,6 +308,7 @@
     </script>
     <script type="text/javascript" src="JS/page1.js"></script>
     <script type="text/javascript" src="JS/page3.js"></script>
+    <script type="text/javascript" src="JS/page4.js"></script>
     <script type="text/javascript">
         function send_message(test, params) {
             var message = 'WindowTest.' + test;
@@ -381,9 +395,9 @@
     </div>
     <div id="test2_3" class="tablist">
         <div class="HeadBody">
-            <a id="XJKC" onclick="runXJKC();">星级课程</a>
-            <a id="MSDH" onclick="runMSDH();">名师导航</a>
-            <a id="XBYF" onclick="runSBYF();">学霸一方</a>
+        <a id="XJKC" onclick="runXJKC();">星级课程</a>
+        <a id="MSDH" onclick="runMSDH();">名师导航</a>
+        <a id="XBYF" onclick="runSBYF();">学霸一方</a>
         </div>
         <div class="contentBody">
             <div id="content3">
@@ -393,10 +407,23 @@
     </div>
     <div id="test2_4" class="tablist">
         <div class="HeadBody">
+            <a id="WDWK" onclick="runWDWK();">我的微课</a>
+            <a id="WDWD" onclick="runWDWD();">我的问答</a>
+            <a id="WDFX" onclick="runWDFX();">我的分享</a>
+            <a id="WDSC" onclick="runWDSC();">我的收藏</a>
+            <a id="WDHY" onclick="runWDHY();">我的好友</a>
+            <a id="WDXX" onclick="runWDXX();">我的信息</a>
+        </div>
+        <div class="contentBody">
+            <div id="content4">
 
+            </div>
         </div>
     </div>
-</div>
 
+</div>
+<div id="comment"  >
+
+</div>
 </body>
 </html>

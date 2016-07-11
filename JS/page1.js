@@ -95,7 +95,7 @@ function GetSSFX_list() {
 
 function ClickComment(index,data) {
     currVideoData=data;
-    var obj=document.getElementById('comment_view');
+    var obj=document.getElementById('test2_1');
     if(obj.style.display==="")
     {
         runComment(data);

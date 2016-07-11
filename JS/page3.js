@@ -44,7 +44,7 @@ function GetXJKC_list(){
              $("#content3").append(
              "<div id='video_item'>" +
              "<div id='video_item_head' style='background-image: url("+WorksStarList.data[i].screenshot_s +")'>"+
-             "<div id='video_item_head_img'  onclick='palyMP4("+JSON.stringify(WorksStarList.data[i]) + ")'>"+
+             "<div id='video_item_head_img'  onclick='palyVideo("+JSON.stringify(WorksStarList.data[i]) + ")'>"+
              "</div>"+
              "<div id='video_item_info'  onclick='ClickComment(" + i + "," + JSON.stringify(WorksStarList.data[i])+");'>"+
              "<a id='test2' href='#comment_view'></a>"+

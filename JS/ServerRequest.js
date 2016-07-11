@@ -59,7 +59,30 @@ var ServerData ={
             var url=ServerData.requestUrl+"user_rank";
             this.quest(url,data,callbackOK,callbackError);
         }
-
+        serverdata.my_weike = function(data,callbackOK,callbackError) {//我的微课列表
+            var url=ServerData.requestUrl+"my_weike";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.my_question = function(data,callbackOK,callbackError) {//我的问答列表
+            var url=ServerData.requestUrl+"my_question";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.my_share = function(data,callbackOK,callbackError) {//我的分享列表
+            var url=ServerData.requestUrl+"my_share";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.my_collection = function(data,callbackOK,callbackError) {//我的收藏列表
+            var url=ServerData.requestUrl+"my_collection";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.my_friend = function(data,callbackOK,callbackError) {//我的好友列表
+            var url=ServerData.requestUrl+"my_friend";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.my_info = function(data,callbackOK,callbackError) {//我的个人信息
+            var url=ServerData.requestUrl+"my_info";
+            this.quest(url,data,callbackOK,callbackError);
+        }
 
 
         return serverdata;

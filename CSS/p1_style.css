@@ -89,6 +89,24 @@
     font-weight:bold;
     cursor: hand;
 }
+
+
+@-webkit-keyframes openComment_view  {
+    0%{bottom: 35px;}
+    100%{bottom: 200px;}
+}
+@-webkit-keyframes closeComment_view  {
+    0%{bottom: 200px;}
+    100%{bottom: 35px;}
+}
+@-webkit-keyframes ResetComment_view  {
+    0%{bottom: 200px;}
+    100%{bottom: 150px;}
+}
+@-webkit-keyframes ResetComment_view2  {
+    0%{margin-bottom: 150px;}
+    100%{margin-bottom: 200px;}
+}
 /*
 #nbody{
     position: absolute;
@@ -230,22 +248,7 @@
 }
 
 
-@-webkit-keyframes openComment_view  {
-     0%{margin-bottom: -350px;}
-     100%{margin-bottom: 0px;}
- }
-@-webkit-keyframes closeComment_view  {
-    0%{margin-bottom: 0px;}
-    100%{margin-bottom: -350px;}
-}
-@-webkit-keyframes ResetComment_view  {
-    0%{margin-bottom: 0px;}
-    100%{margin-bottom: -100px;}
-}
-@-webkit-keyframes ResetComment_view2  {
-    0%{margin-bottom: -100px;}
-    100%{margin-bottom: 0px;}
-}
+
 
 
 */

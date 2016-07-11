@@ -1,0 +1,58 @@
+#content4{
+    position: absolute;
+    left: 0;
+    top: 0 ;
+
+    display:inline-block;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    width:100%;
+    height: 100%;
+    background-color:white;
+}
+#userrank_content_img{
+    float: left;
+    width:75px;
+    height: 90px;
+}
+#userrank_content_img img{
+    width:65px;
+    height: 65px;
+
+
+}
+#userrank_content_info{
+    float: left;
+    width:120px;
+    height: 90px;
+}
+
+
+#p_nickname{
+    font: 14px "微软雅黑", Arial, Helvetica, sans-serif,bold;
+    margin-top: 5px;
+    color: black;
+    float: left;
+}
+#p_rank{
+    font: 12px "微软雅黑", Arial, Helvetica, sans-serif,bold;
+    margin-top: 5px;
+    color: white;
+    background-color: orange;
+    float: left;
+}
+
+#p_point{
+
+    color: #A0A3A4;
+    float: left;
+
+}
+
+#userrank_content {
+
+    width:195px;
+    height:90px;
+    float: left;
+    margin: 5px 0 0 5px;
+}
