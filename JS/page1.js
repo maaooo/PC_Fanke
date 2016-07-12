@@ -92,11 +92,50 @@ function GetSSFX_list() {
 
     });
 }
-
+var test=false;
 function ClickComment(index,data) {
+    $("#content1_botom").css("display","block");
+     $("#content1").css("width","100%");
+
+
     currVideoData=data;
-    var obj=document.getElementById('test2_1');
-    if(obj.style.display==="")
+    var c1=document.getElementById('content1');
+    var c1_b=document.getElementById('content1_botom');
+
+    if(test===false)
+    {
+
+        c1.style.animation="C1_openComment_view 0.3s forwards";
+        c1.style.animationFillMode="forwards"
+        c1_b.style.animation="C1B_openComment_view 0.3s forwards";
+        c1_b.style.animationFillMode="forwards"
+        test=true;
+    }else{
+
+
+        //console.log("test");
+        
+        c1.style.animation="C1_openComment_view_Next_1 0.2s forwards";
+        c1_b.style.animation="C1B_openComment_view_Next_1 0.2s  forwards";
+
+        c1.addEventListener("animationend", an_c1);
+        c1_b.addEventListener("animationend", an_c1b);
+    }
+
+    function an_c1() {
+        c1.removeEventListener('animationend', an_c1);
+        // runComment(data);
+        c1.style.animation="C1_openComment_view_Next_2 0.2s forwards";
+        c1.style.animationFillMode="forwards"
+    }
+    function an_c1b() {
+        c1_b.removeEventListener('animationend', an_c1b);
+        // runComment(data);
+        c1_b.style.animation="C1B_openComment_view_Next_2 0.2s forwards";
+        c1_b.style.animationFillMode="forwards"
+    }
+
+ /*   if(obj.style.display==="")
     {
         runComment(data);
         obj.style.animation="openComment_view 0.3s forwards";
@@ -114,7 +153,7 @@ function ClickComment(index,data) {
         obj.addEventListener("animationend", tttt);
 
     }
-
+*/
 }
 
 function runComment(data) {
@@ -195,7 +234,20 @@ function position() {
     send_message('Position', x + ',' + y + ',' + width + ',' + height);
 }
 
+function p1_init() {
+    $("#content1_top").css("display","none");//block
+    $("#content1_left").css("display","none");
+    $("#content1_right").css("display","none");
+    $("#content1_botom").css("display","none");
+    $("#content1").css("width","100%");
+   // $("#content1").css("width","100%");
+   // $("#content1").css("height","100%");
+   // $("#content1_botom").css("height","0%");
+   // $(".tablist").css("bottom","100px")
+}
+
 function runJPKC() {
+   // $("#test22").css("height","100%");
     $("#JPKC").css("color", "#3089CE");
     $("#SSFX").css("color", "#99A7AF");
     sqldata.GetLoginData(GetJPKC_list);

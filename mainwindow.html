@@ -172,16 +172,7 @@
             bottom: 35px;
             display: none;
         }
-        #comment{
 
-
-            float: left;
-            height: 50px;
-            width: 100%;
-            display: block;
-
-            background-color:Red;
-        }
         .block {
             display: block;
         }
@@ -235,6 +226,11 @@
             height: 100%;
             background-color:white;
         }
+        .nbody{
+            background-color:red;
+        }
+
+
 
 
     </style>
@@ -294,11 +290,16 @@
 
     <script src="JS/ConnectSQL.js"></script>
     <script src="JS/ServerRequest.js"></script>
+    <script type="text/javascript" src="JS/page1.js"></script>
+    <script type="text/javascript" src="JS/page3.js"></script>
+    <script type="text/javascript" src="JS/page4.js"></script>
 
     <script type="text/javascript">
         var sqldata={};
         var ServerRuqest={};
+
         $(document).ready(function (e) {
+            p1_init();
             //SidebarTabHandler.Init();
             sqldata=SQlData.createNew();
             ServerRuqest=ServerData.createServer();
@@ -306,9 +307,7 @@
 
         });
     </script>
-    <script type="text/javascript" src="JS/page1.js"></script>
-    <script type="text/javascript" src="JS/page3.js"></script>
-    <script type="text/javascript" src="JS/page4.js"></script>
+
     <script type="text/javascript">
         function send_message(test, params) {
             var message = 'WindowTest.' + test;
@@ -375,7 +374,29 @@
             <a id="SSFX" onclick="runSSFX();">师生分享</a>
         </div>
         <div class="contentBody">
+            <div id="content1_top">
+
+            </div>
+            <div id="content1_left">
+
+            </div>
             <div id="content1">
+
+            </div>
+            <div id="content1_right">
+
+            </div>
+            <div id="content1_botom">
+
+                <p>maodfsdfsdf</p>
+                <p>maodfsdfsdf</p>
+                <p>maodfsdfsdf</p>
+                <p>maodfsdfsdf</p>
+                <p>maodfsdfsdf</p>
+                <p>maodfsdfsdf</p>
+                <p>maodfsdfsdf</p>
+                <p>maodfsdfsdf</p>
+                <p>maodfsdfsdf</p>
 
             </div>
 
@@ -422,8 +443,6 @@
     </div>
 
 </div>
-<div id="comment"  >
 
-</div>
 </body>
 </html>
