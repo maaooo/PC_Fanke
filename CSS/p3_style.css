@@ -1,15 +1,42 @@
 #content3{
-    position: absolute;
-    left: 0;
-    top: 0 ;
-
+    float: left;
     display:inline-block;
     justify-content:space-around;
     flex-wrap:wrap;
-    width:100%;
+    width:60%;
     height: 100%;
+    overflow: auto;
     background-color:white;
 }
+
+#content3_top{
+    float: left;
+    width:100%;
+    height: 10%;
+    background-color:yellow;
+}
+#content3_botom{
+    float: left;
+    width:100%;
+    height: 10%;
+    background-color:deeppink;
+}
+#content3_left{
+    float: left;
+    width:20%;
+    height: 100%;
+    background-color:deepskyblue;
+}
+#content3_right{
+    float: left;
+    width:20%;
+    height: 100%;
+    background-color:darkblue;
+}
+
+
+
+
 #userrank_content_img{
     float: left;
     width:75px;

@@ -40,13 +40,13 @@ function GetXJKC_list(){
              var dur=Number(WorksStarList.data[i].duration);
              var newTime = new Date(dur);
              var time=zeroize(newTime.getMinutes())+":"+zeroize(newTime.getSeconds());
-
+             var type="XJKC";
              $("#content3").append(
              "<div id='video_item'>" +
              "<div id='video_item_head' style='background-image: url("+WorksStarList.data[i].screenshot_s +")'>"+
              "<div id='video_item_head_img'  onclick='palyVideo("+JSON.stringify(WorksStarList.data[i]) + ")'>"+
              "</div>"+
-             "<div id='video_item_info'  onclick='ClickComment(" + i + "," + JSON.stringify(WorksStarList.data[i])+");'>"+
+             "<div id='video_item_info'  onclick='ClickComment(" + JSON.stringify(type) + "," + JSON.stringify(WorksStarList.data[i])+");'>"+
              "<a id='test2' href='#comment_view'></a>"+
              "<p id='video_item_info_title'>"+WorksStarList.data[i].title +"</p>"+
              "<p id='video_item_info_time'>"+time +"</p>"+
@@ -122,6 +122,15 @@ function GetSBYF_list() {
 
     })
 
+}
+
+function p3_init() {
+    $("#content3_top").css("display","none");//block
+    $("#content3_left").css("display","none");
+    $("#content3_right").css("display","none");
+    $("#content3_botom").css("display","none");
+    $("#content3").css("width","100%");
+    $("#content3").css("height","100%");
 }
 
 function runXJKC() {

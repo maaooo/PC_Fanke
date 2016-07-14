@@ -138,7 +138,14 @@
     0%{height: 30%;}
     100%{height: 50%;}
 }
-
+@-webkit-keyframes C1_openComment_view_close  {
+    0%{height: 50%;}
+    100%{height: 100%;}
+}
+@-webkit-keyframes C1B_openComment_view_clsoe  {
+    0%{height: 50%;}
+    100%{height: 0%;}
+}
 
 /*
 #nbody{
@@ -203,82 +210,7 @@
 
 
 
-#comment_view{
-    opacity: 1;
-    height:300px;
-    z-index: 400;
-    position: fixed;
-    width:100%;
-    bottom:0;
-    background:white;
-    color: black;
-    display:none;
-    margin-bottom: -350px
 
-}
-#commnet_content {
-    opacity: 1;
-    margin-left:auto;
-    margin-right:auto;
-    border: 1px solid rgba(0,0,0,.2);
-    background:lightblue;
-    border-radius: 5px;
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.5);
-
-    width:95%;
-    height:95%;
-    filter:blur(10px);
-}
-
-#commnet_content_write,#commnet_content_write a{
-    border-radius: 5px 5px 0 0;
-    opacity: 1;
-    width:100%;
-    height:100px;
-    background:lightblue;
-    font: 14px "微软雅黑", Arial, Helvetica, sans-serif,bold;
-}
-#commnet_content_read{
-
-    overflow:auto;
-    top:100px;
-
-    width:100%;
-    height:185px;
-    background:white;
-}
-
-
-#commnet_list_data{
-    float: left;
-    width:100%;
-    height:50px;
-
-}
-
-#commnet_list_hr {
-
-    width:100%;
-    height:1px;
-    border:none;
-    border-top:1px dashed #0066CC;
-
-}
-
-#commnet_list_data p{
-    float: left;
-    font: 14px "微软雅黑", Arial, Helvetica, sans-serif,bold;
-}
-#commnet_list_data_nickname{
-    float: left;
-    color: blue;
-}
-#commnet_list_data img{
-    float: left;
-    width: 50px;
-    height: 50px;
-
-}
 
 
 

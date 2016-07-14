@@ -1,0 +1,81 @@
+.comment_view{
+    opacity: 1;
+    height:100%;
+    width:100%;
+    bottom:0;
+    background:white;
+    color: black;
+  /*  display:none;
+    z-index: 400;
+bottom:0;
+position: fixed;
+    margin-bottom: -350px*/
+
+}
+.commnet_content {
+    opacity: 1;
+    margin-left:auto;
+    margin-right:auto;
+    /*border: 1px solid rgba(0,0,0,.2);*/
+    /*background:lightblue;*/
+    /*border-radius: 5px;*/
+    /*box-shadow: 1px 1px 1px 1px rgba(0,0,0,.5);*/
+
+    width:100%;
+    height:100%;
+    filter:blur(10px);
+}
+
+.commnet_content_write,.commnet_content_write a{
+    border-radius: 5px 5px 0 0;
+    float: left;
+    opacity: 1;
+    width:100%;
+    height:20% ;
+    background:lightblue;
+    font: 14px "微软雅黑", Arial, Helvetica, sans-serif,bold;
+}
+.commnet_content_read{
+
+    overflow:auto;
+    float: left;
+
+    width:100%;
+    height: 80% ;
+
+    background:white;
+}
+
+
+.commnet_list_data{
+    float: left;
+    width:100%;
+    height:50px;
+
+}
+
+.commnet_list_hr {
+
+    width:100%;
+    height:1px;
+    border:none;
+    border-top:1px dashed #0066CC;
+
+}
+
+.commnet_list_data p{
+    float: left;
+    font: 14px "微软雅黑", Arial, Helvetica, sans-serif,bold;
+}
+.commnet_list_data_nickname{
+    float: left;
+    color: blue;
+}
+.commnet_close{
+    float: right;
+}
+.commnet_list_data img{
+    float: left;
+    width: 50px;
+    height: 50px;
+}

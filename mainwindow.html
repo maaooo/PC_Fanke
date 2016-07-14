@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="CSS/comment_view.css" />
     <link rel="stylesheet" type="text/css" href="CSS/p1_style.css" />
     <link rel="stylesheet" type="text/css" href="CSS/p3_style.css" />
     <link rel="stylesheet" type="text/css" href="CSS/p4_style.css" />
@@ -290,16 +291,17 @@
 
     <script src="JS/ConnectSQL.js"></script>
     <script src="JS/ServerRequest.js"></script>
+
     <script type="text/javascript" src="JS/page1.js"></script>
     <script type="text/javascript" src="JS/page3.js"></script>
     <script type="text/javascript" src="JS/page4.js"></script>
-
+    <script type="text/javascript" src="JS/WriteComment.js"></script>
     <script type="text/javascript">
         var sqldata={};
         var ServerRuqest={};
 
         $(document).ready(function (e) {
-            p1_init();
+            p1_init();p3_init();p4_init();
             //SidebarTabHandler.Init();
             sqldata=SQlData.createNew();
             ServerRuqest=ServerData.createServer();
@@ -335,7 +337,7 @@
     <script type="text/javascript">
         window.onload = function() {
             new tab('test2_li_now_', '_', function() {
-                //alert('您现在单的是第:' + this['Index'] + '个!');
+               // alert('您现在单的是第:' + this['Index'] + '个!');
             });
         }
     </script>
@@ -375,31 +377,15 @@
         </div>
         <div class="contentBody">
             <div id="content1_top">
-
             </div>
             <div id="content1_left">
-
             </div>
             <div id="content1">
-
             </div>
             <div id="content1_right">
-
             </div>
             <div id="content1_botom">
-
-                <p>maodfsdfsdf</p>
-                <p>maodfsdfsdf</p>
-                <p>maodfsdfsdf</p>
-                <p>maodfsdfsdf</p>
-                <p>maodfsdfsdf</p>
-                <p>maodfsdfsdf</p>
-                <p>maodfsdfsdf</p>
-                <p>maodfsdfsdf</p>
-                <p>maodfsdfsdf</p>
-
             </div>
-
         </div>
 
     </div>
@@ -421,8 +407,15 @@
         <a id="XBYF" onclick="runSBYF();">学霸一方</a>
         </div>
         <div class="contentBody">
+            <div id="content3_top">
+            </div>
+            <div id="content3_left">
+            </div>
             <div id="content3">
-
+            </div>
+            <div id="content3_right">
+            </div>
+            <div id="content3_botom">
             </div>
         </div>
     </div>
@@ -436,8 +429,15 @@
             <a id="WDXX" onclick="runWDXX();">我的信息</a>
         </div>
         <div class="contentBody">
+            <div id="content4_top">
+            </div>
+            <div id="content4_left">
+            </div>
             <div id="content4">
-
+            </div>
+            <div id="content4_right">
+            </div>
+            <div id="content4_botom">
             </div>
         </div>
     </div>

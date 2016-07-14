@@ -18,13 +18,13 @@ function GetWDWK_list() {
                 var dur=Number(my_weikeList.data[i].duration);
                 var newTime = new Date(dur);
                 var time=zeroize(newTime.getMinutes())+":"+zeroize(newTime.getSeconds());
-
+                var type="WDWK";
                 $("#content4").append(
                     "<div id='video_item'>" +
                     "<div id='video_item_head' style='background-image: url("+my_weikeList.data[i].screenshot_s +")'>"+
                     "<div id='video_item_head_img'  onclick='palyVideo("+JSON.stringify(my_weikeList.data[i]) + ")'>"+
                     "</div>"+
-                    "<div id='video_item_info'  onclick='ClickComment(" + i + "," + JSON.stringify(my_weikeList.data[i])+");'>"+
+                    "<div id='video_item_info'  onclick='ClickComment(" +  JSON.stringify(type) + "," + JSON.stringify(my_weikeList.data[i])+");'>"+
                     "<a id='test2' href='#comment_view'></a>"+
                     "<p id='video_item_info_title'>"+my_weikeList.data[i].title +"</p>"+
                     "<p id='video_item_info_time'>"+time +"</p>"+
@@ -40,7 +40,14 @@ function GetWDWK_list() {
 }
 
 
-
+function p4_init() {
+    $("#content4_top").css("display","none");//block
+    $("#content4_left").css("display","none");
+    $("#content4_right").css("display","none");
+    $("#content4_botom").css("display","none");
+    $("#content4").css("width","100%");
+    $("#content4").css("height","100%");
+}
 
 
 
