@@ -49,6 +49,23 @@ function p4_init() {
     $("#content4").css("height","100%");
 }
 
+var wdxx="<div id='mywdxx'>" +
+            "<div id='tabselect'></div>"+
+            "<div id='info_1'></div>"+
+            "<div id='info_2'></div>"+
+            "<div id='info_3'></div>"+
+         "</div>";
+
+
+function p4_WDXX() {
+    $("#content4").empty();
+    $("#content4").append(wdxx);
+    var a = document.getElementById('mywdxx');
+    var c = document.getElementById('info_1');
+        c.style.height=a.offsetHeight-100+'px';
+
+}
+
 
 
 function runWDWK() {
@@ -73,6 +90,7 @@ function runWDHY() {
     $("#WDWD").css("color", "#99A7AF");$("#WDFX").css("color", "#99A7AF");$("#WDSC").css("color", "#99A7AF");$("#WDHY").css("color", "#3089CE");$("#WDXX").css("color", "#99A7AF");
 }
 function runWDXX() {
+    p4_WDXX();
     $("#WDWK").css("color", "#99A7AF");
     $("#WDWD").css("color", "#99A7AF");$("#WDFX").css("color", "#99A7AF");$("#WDSC").css("color", "#99A7AF");$("#WDHY").css("color", "#99A7AF");$("#WDXX").css("color", "#3089CE");
 }

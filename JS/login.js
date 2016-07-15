@@ -104,7 +104,7 @@ function toLogin() {
                 window.location.assign("file:///H:\\MAO\\html\\PC_Fanke\\mainwindow.html")
             });
         }else{
-            loginErrorInfo(obj.errorMs,"#ff0000");
+            loginErrorInfo(obj.errorMsg,"#ff0000");
         }
     },function (e) {
         loginErrorInfo("网络连接失败或服务器无响应!","#ff0000");

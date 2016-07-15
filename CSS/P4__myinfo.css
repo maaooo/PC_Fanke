@@ -1,0 +1,31 @@
+
+#mywdxx{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+#tabselect{
+    width: 100%;
+    height: 100px;
+    background-color: salmon;
+}
+
+#info_1{/*个人资料*/
+    width: 100%;
+    height: 90%;
+    display: block;
+    background-color: yellow;
+}
+#info_2{
+    width: 100%;
+    height: 80%;
+    display: none;
+    background-color: darkgreen;
+}
+#info_3{
+    width: 100%;
+    height: 80%;
+    display: none;
+    background-color: mediumvioletred;
+}
