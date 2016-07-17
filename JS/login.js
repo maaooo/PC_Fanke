@@ -101,7 +101,7 @@ function toLogin() {
         {
             sqldata.InsertLoginTable(username,password,loginkeeping);
             sqldata.UpdataLoginTable(username,x,function () {
-                window.location.assign("file:///H:\\MAO\\html\\PC_Fanke\\mainwindow.html")
+                window.location.assign("file:///C:\\PC_Fanke\\mainwindow.html")
             });
         }else{
             loginErrorInfo(obj.errorMsg,"#ff0000");
