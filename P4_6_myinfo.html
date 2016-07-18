@@ -25,11 +25,15 @@
             <div class='tab-pane fade in active' id='home'>
                 <div id='testA'>
                     <div id='testA_A'>
-                        <img id='imgHead' src='http://img2.a0bi.com/upload/ttq/20160716/1468636317289.jpg' class='img-circle'>
+                        <img id='imgHead'   class='img-circle'>
                     </div>
                     <div id='testA_B'>
-                        <button type='button' style='width: 200px;margin: 0;clear:left;' class='btn btn-success'>上传头像
-                        </button>
+                        <label class="btn btn-primary btn-file" style="width: 200px">
+                            选择图片 <input type="file" id="file_upload"  onchange="ShwoHeadImage();" style="display: none;">
+                        </label>
+                        <!--<input type="file" name="file" class="btn-file"    />-->
+                       <!-- <button type='button' style='width: 200px;margin: 0;clear:left;' class='btn btn-success' onclick="show_file_dialog('fo', 'FileOpen');">上传头像</button><span id="fo"></span>
+                        <input type="file" name="file" class='btn btn-success'  required />-->
                         <p></p>
                         <p style='font-size: 14px;color: #9FA7AA'>支持JPG、GIF、PNG格式，图片不得超过2M</p>
                     </div>
@@ -43,36 +47,38 @@
                             <form class='form-horizontal' role='form'>
                                 <fieldset>
                                     <div class='form-group'>
-                                        <label class='col-sm-1 control-label' for="ds_host">昵称</label>
+                                        <label class='col-sm-1 control-label' for="ds_nickname">昵称</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' id="ds_host" type='text' placeholder='192.168.1.161'/>
+                                            <input class='form-control' id="ds_nickname" type='text' placeholder=''/>
                                         </div>
-                                        <label class='col-sm-1 control-label' for='ds_name'>地区</label>
+                                        <label class='col-sm-1 control-label' for='ds_name'>姓名</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' id='ds_name' type='text' placeholder='msh'/>
+                                            <input class='form-control' id='ds_name' type='text' placeholder=''/>
                                         </div>
                                     </div>
                                     <div class='form-group'>
-                                        <label class='col-sm-1 control-label' for='ds_username'>姓名</label>
+                                        <label class='col-sm-1 control-label' for='ds_mobile'>手机</label>
                                         <div class='col-sm-4'>
-                                            <input class='form-control' id='ds_username' type='text' placeholder='root'/>
+                                            <input class='form-control' id='ds_mobile' type='text' placeholder=''/>
                                         </div>
-                                        <label class='col-sm-1 control-label' for='ds_password'>院校</label>
-                                        <div class='col-sm-4' st>
-                                            <input class='form-control' id='ds_password' type='password' placeholder='123456'/>
+                                        <label class='col-sm-1 control-label' for='ds_email'>邮箱</label>
+                                        <div class='col-sm-4'>
+                                            <input class='form-control' id='ds_email' type='text' placeholder=''/>
                                         </div>
                                     </div>
                                     <div class='form-group'>
-                                        <label class='col-sm-1 control-label' for='ds_iphone'>电话</label>
-                                        <div class='col-sm-4'>
-                                            <input class='form-control' id='ds_iphone' type='text' placeholder='root'/>
-                                        </div>
-                                        <label class='col-sm-1 control-label' for='ds_class'>班级</label>
-                                        <div class='col-sm-4'>
-                                            <input class='form-control' id='ds_class' type='password' placeholder='123456'/>
+                                        <label class='col-sm-1 control-label' for="ds_description">个性签名</label>
+                                        <div class='col-sm-9'>
+                                            <textarea class="form-control" id='ds_description' rows="6"></textarea>
                                         </div>
                                     </div>
-
+                                    <div class='form-group'>
+                                        <div class='col-sm-offset-1 col-sm-6'>
+                                            <button  type="button" style="width: 120px"  class="btn btn-success" onclick="runUserEdit();">
+                                                提交
+                                            </button>
+                                        </div>
+                                    </div>
                                 </fieldset>
                             </form>
                         </div>

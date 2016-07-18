@@ -49,100 +49,20 @@ function p4_init() {
     $("#content4").css("height","100%");
 }
 
-var wdxx="<div id='mywdxx'>" +
-            "<div id='tabselect'>"+
-   
-                "<ul id='myTab' class='nav nav-tabs'>"+
-                    "<li class='active'>"+
-                        "<a href='#home' class='dropdown-toggle glyphicon glyphicon-user'  data-toggle='tab'>"+
-                        " 个人资料"+
-                        "</a>"+
-                    "</li>"+
-                    "<li><a class='glyphicon glyphicon-lock' href='#ios' data-toggle='tab'> 修改密码</a></li>"+
-                    "<li><a class='glyphicon glyphicon-exclamation-sign' href='#java' data-toggle='tab'> 账号安全</a></li>"+
-                "</ul>"+
-                "<div id='myTabContent' class='tab-content'>"+
-                    "<div class='tab-pane fade in active' id='home' >"+
-                        "<div id='testA'>" +
-                            "<div id='testA_A'>" +
-                                "<img id='imgHead' src='http://img2.a0bi.com/upload/ttq/20160716/1468636317289.jpg' class='img-circle'>"+
-                            "</div>"+
-                            "<div id='testA_B'>" +
-                                "<button type='button' style='width: 200px;margin: 0;clear:left;' class='btn btn-success'>上传头像</button>"+
-                                "<p></p>"+
-                                "<p  style='font-size: 14px;color: #9FA7AA';clear:left;>支持JPG、GIF、PNG格式，图片不得超过2M</p>"+
-                            "</div>"+
-                        "</div>"+
-                        "<div id='testB'>"+
-    "<div class='panel panel-info' style='height: 96%'>"+
-        "<div class='panel-heading'>"+
-            "<h3 class='panel-title'>基本信息</h3>"+
-        "</div>"+
-        "<div class='panel-body'  style='color: black' >"+
-            "<form class='form-horizontal' role='form'>"+
-                "<fieldset>"+
-                "<div class='form-group'>"+
-                    "<label class='col-sm-2 control-label' for='ds_host'>昵称</label>"+
-                    "<div class='col-sm-4'>"+
-                        "<input class='form-control' id='ds_host' type='text' placeholder='192.168.1.161'/>"+
-                    "</div>"+
-                    "<label class='col-sm-2 control-label' for='ds_name'>地区</label>"+
-                    "<div class='col-sm-4'>"+
-                        "<input class='form-control' id='ds_name' type='text' placeholder='msh'/>"+
-                    "</div>"+
-                "</div>"+
-                "<div class='form-group'>"+
-                    "<label class='col-sm-2 control-label' for='ds_username'>姓名</label>"+
-                    "<div class='col-sm-4'>"+
-                        "<input class='form-control' id='ds_username' type='text' placeholder='root'/>"+
-                    "</div>"+
-                    "<label class='col-sm-2 control-label' for='ds_password'>院校</label>"+
-                    "<div class='col-sm-4' st>"+
-                        "<input class='form-control' id='ds_password' type='password' placeholder='123456'/>"+
-                    "</div>"+
-                "</div>"+
-                "<div class='form-group'>"+
-                    "<label class='col-sm-2 control-label' for='ds_iphone'>电话</label>"+
-                    "<div class='col-sm-4'>"+
-                        "<input class='form-control' id='ds_iphone' type='text' placeholder='root'/>"+
-                    "</div>"+
-                    "<label class='col-sm-2 control-label' for='ds_class'>班级</label>"+
-                    "<div class='col-sm-4'>"+
-                        "<input class='form-control' id='ds_class' type='password' placeholder='123456'/>"+
-                    "</div>"+
-                "</div>"+
+function show_file_dialog(element, test) {
+    var message = 'DialogTest.' + test;
+    var target = document.getElementById(element);
 
-                "</fieldset>"+
-            "</form>"+
-    "</div>"+
-    "</div>"+
-                        "</div>"+
-                    "</div>"+
-                    "<div class='tab-pane fade' id='ios'>"+
-                    "<p style='color: black'>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple"+
-                    "TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>"+
-                    "</div>"+
+    // Results in a call to the OnQuery method in dialog_test.cpp
+    window.cefQuery({
+        request: message,
+        onSuccess: function(response) {
+            target.innerText = response;
+        },
+        onFailure: function(error_code, error_message) {}
+    });
+}
 
-                    "<div class='tab-pane fade' id='java'>"+
-                    "<p style='color: black'>java</p>"+
-                    "</div>"+
-
-                "</div>"+
-
-      /*          "<button type='button' class='btn btn-primary btn-lg'>"+
-                "<span class='glyphicon glyphicon-user'></span> 个人资料"+
-                "</button>"+
-                "<button type='button' class='btn btn-primary btn-lg'>"+
-                "<span class='glyphicon glyphicon-lock'></span> 修改密码"+
-                "</button>"+
-                "<button type='button' class='btn btn-primary btn-lg'>"+
-                "<span class='glyphicon glyphicon-exclamation-sign'></span> 账号安全"+
-                "</button>"+*/
-            "</div>"+
-          /*  "<div id='info_1'></div>"+
-            "<div id='info_2'></div>"+
-            "<div id='info_3'></div>"+*/
-         "</div>";
 
 
 
@@ -158,7 +78,11 @@ function p4_WDXX() {
             var obj = JSON.parse(x);
             if (obj.result === "1")
             {
-                $("#ds_host").val(obj.data.username);
+                $("#ds_nickname").val(obj.data.nickname);
+                $("#ds_name").val(obj.data.name);
+                $("#ds_mobile").val(obj.data.mobile);
+                $("#ds_email").val(obj.data.email);
+                $("#ds_description").val(obj.data.description);
 
                 $("#imgHead").attr('src',obj.data.head);
 
@@ -168,32 +92,50 @@ function p4_WDXX() {
         },function (e) {
 
         });
-
-/*        var  a=document.getElementById('mywdxx');
-        var  b=document.getElementById('myTabContent');
-        var  c=document.getElementById('myTab');*/
-        //c.style.height=a.offsetHeight-(b.offsetHeight+36)+'px';
+ 
     });
-
-
-
-    //var dd =$("#content4").load("test3.html #mywdxx");
-
-   //document.getElementById("ds_host").value="555555";
-  // console.log( typeof(dd));
-//    var a =$('#content4').get(0);
-/*    console.log($('#content4').get(0));
-
-    console.log($('#mywdxx').offsetHeight);
-
-    console.log($('#myTabContent'));
-    var b = document.getElementById('myTab');
-    console.log($('#myTab'));
-
-     c.style.height=a.offsetHeight-(b.offsetHeight+36)+'px';*/
-
+ 
 }
+function runUserEdit() {
+    var fdata=new FormData();
+    fdata.append("uid", myUID);
+    fdata.append("nickname", $("#ds_nickname").val());
+    fdata.append("name", $("#ds_name").val());
+    fdata.append("mobile", $("#ds_mobile").val());
+    fdata.append("email", $("#ds_email").val());
+    fdata.append("description", $("#ds_description").val());
+    fdata.append("head", $("#file_upload")[0].files[0]);
+    ServerRuqest.user_edit(fdata,function (x) {
+        var obj = JSON.parse(x);
+        if (obj.result === "1") {
+            alert("ok");
+        }else{
+            alert(x);
+        }
 
+    },function (e) {
+       // alert(e);
+    });
+}
+function ShwoHeadImage()  {
+    var x = document.getElementById("file_upload");
+
+    if(!x || !x.value) return;
+
+    var patn = /\.png$|\.jpg$|\.jpeg$|\.gif$/i;
+    if(patn.test(x.value)){
+
+
+            var reader = new FileReader();
+            reader.readAsDataURL($("#file_upload")[0].files[0]);
+            reader.onload=function () {
+            var y = document.getElementById("imgHead");
+            y.setAttribute('src',  this.result);
+        }
+
+    }else{
+        alert("您选择的似乎不是图像文件。");
+    }}
 
 
 function runWDWK() {

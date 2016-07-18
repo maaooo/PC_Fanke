@@ -26,6 +26,30 @@ var ServerData ={
             xhr.send(data);
         }
 
+        serverdata.questUpdataFile=function (url,data,callbackOK,callbackError) {
+            var xhr = new XMLHttpRequest() ;
+
+
+            xhr.open("POST",url,true);
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState==4)
+                {
+                    if(xhr.status==200)
+                    {
+                        callbackOK(xhr.responseText);
+                    }else{
+                        callbackError(xhr.status);
+                    }
+                }else{
+                    //  console.log(xhr.readyState);
+                }
+
+            };
+            //xhr.setRequestHeader("Content-Type", "multipart/form-data");
+            xhr.send(data);
+
+        }
+
 
         serverdata.login = function(data,callbackOK,callbackError) {
             var url=ServerData.requestUrl+"login";
@@ -83,6 +107,11 @@ var ServerData ={
             var url=ServerData.requestUrl+"my_info";
             this.quest(url,data,callbackOK,callbackError);
         }
+        serverdata.user_edit = function(data,callbackOK,callbackError) {//我的个人信息
+            var url=ServerData.requestUrl+"user_edit";
+            this.questUpdataFile(url,data,callbackOK,callbackError);
+        }
+
 
 
         return serverdata;
