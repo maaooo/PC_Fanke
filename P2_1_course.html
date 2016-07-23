@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css"/>
+ <!--   <link rel="stylesheet" type="text/css" href="CSS/p4__myinfo.css"/>-->
+    <script src="JS/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="JS/bootstrap.min.js"></script>
+    <script src="JS/page2.js"></script>
+    <script src="JS/p4_6_myinfo.js"></script>
+</head>
+<body>
+
+<div id="mycourse">
+    <div id="leftA" class="col-sm-8" style="background-color: white;">
+
+    </div>
+    <div id="rightB" class="col-sm-4" style="background-color: yellow;" >
+
+    </div>
+
+
+
+
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal2" style="margin-top: 250px" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: black">
+                        提示
+                    </h4>
+                </div>
+                <div class="modal-body" style="color: black">
+                    <h5 id="modelinfo2">您选择的似乎不是图像文件！！！</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">关闭
+                    </button>
+
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+</div>
+
+
+
+
+<div id="EnterQuestion" class="col-sm-12" style="background-color: #414A4F;margin-top: 20px;float: left">
+    <p></p>
+    <textarea class="form-control col-sm-12" id='dription' rows="3" placeholder='输入你问题' style="resize:vertical" ></textarea>
+    <img id="questionImg" style="float:left;"  >
+    <div  style="width: 100%;float:left">
+        <label class="btn btn-primary btn-file btn-xs" style="width: 70px;float:left;margin-top: 5px">
+            选择图片 <input type="file" id="Imagefile_upload"  onchange="ShwoImage();" style="display: none;">
+        </label>
+
+        <h5 style=" float:left"> 感恩教育</h5>
+        <button style="margin-top:6px;float:right;" class="btn btn-xs btn-info" >发布</button>
+    </div>
+</div>
+
+
+
+</body>
+</html>

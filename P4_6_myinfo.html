@@ -18,22 +18,20 @@
                     个人资料
                 </a>
             </li>
-            <li><a class='glyphicon glyphicon-lock' href='#ios' data-toggle='tab'> 修改密码</a></li>
+            <li><a class='glyphicon glyphicon-lock' href='#EditPassword' data-toggle='tab'> 修改密码</a></li>
             <li><a class='glyphicon glyphicon-exclamation-sign' href='#java' data-toggle='tab'> 账号安全</a></li>
         </ul>
         <div id='myTabContent' class='tab-content'>
             <div class='tab-pane fade in active' id='home'>
                 <div id='testA'>
                     <div id='testA_A'>
-                        <img id='imgHead'   class='img-circle'>
+                        <img id='imgHead' class='img-circle'>
                     </div>
                     <div id='testA_B'>
                         <label class="btn btn-primary btn-file" style="width: 200px">
-                            选择图片 <input type="file" id="file_upload"  onchange="ShwoHeadImage();" style="display: none;">
+                            选择图片 <input type="file" id="file_upload" onchange="ShwoHeadImage();" style="display: none;">
                         </label>
-                        <!--<input type="file" name="file" class="btn-file"    />-->
-                       <!-- <button type='button' style='width: 200px;margin: 0;clear:left;' class='btn btn-success' onclick="show_file_dialog('fo', 'FileOpen');">上传头像</button><span id="fo"></span>
-                        <input type="file" name="file" class='btn btn-success'  required />-->
+
                         <p></p>
                         <p style='font-size: 14px;color: #9FA7AA'>支持JPG、GIF、PNG格式，图片不得超过2M</p>
                     </div>
@@ -69,12 +67,14 @@
                                     <div class='form-group'>
                                         <label class='col-sm-1 control-label' for="ds_description">个性签名</label>
                                         <div class='col-sm-9'>
-                                            <textarea class="form-control" id='ds_description' rows="6"></textarea>
+                                            <textarea class="form-control" id='ds_description' rows="6"
+                                                      style="resize:none"></textarea>
                                         </div>
                                     </div>
                                     <div class='form-group'>
                                         <div class='col-sm-offset-1 col-sm-6'>
-                                            <button  type="button" style="width: 120px"  class="btn btn-success" onclick="runUserEdit();">
+                                            <button type="button" style="width: 120px" class="btn btn-success"
+                                                    onclick="runUserEdit();">
                                                 提交
                                             </button>
                                         </div>
@@ -85,22 +85,77 @@
                     </div>
                 </div>
             </div>
-            <div class='tab-pane fade' id='ios'>
-                <p style='color: black'>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
-                    "TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+            <div class='tab-pane fade' id='EditPassword' style="color: black">
+                <form class='form-horizontal' role='form' style="margin-top: 20px">
+                    <fieldset>
+                        <div class='form-group'>
+                            <label class='col-sm-1 control-label' for="old_pw">原密码</label>
+                            <div class='col-sm-4'>
+                                <input class='form-control' id="old_pw" type='password' placeholder=''/>
+                            </div>
+
+                        </div>
+                        <div class='form-group'>
+                            <label class='col-sm-1 control-label' for='new_pw1'>新密码</label>
+                            <div class='col-sm-4'>
+                                <input class='form-control' id='new_pw1' type='password' placeholder=''/>
+                            </div>
+
+                        </div>
+                        <div class='form-group'>
+                            <label class='col-sm-1 control-label' for='new_pw2'>新密码确认</label>
+                            <div class='col-sm-4'>
+                                <input class="form-control" id='new_pw2' type="password"/>
+                            </div>
+                        </div>
+                        <div class='form-group'>
+                            <div class='col-sm-offset-1 col-sm-6'>
+                                <button type="button" style="width: 120px" class="btn btn-success"
+                                        onclick="runPasswordEdit();">
+                                    提交
+                                </button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
 
             <div class='tab-pane fade' id='java'>
-                <p style='color: black'>java</p>
+                <p style='color: black'>设计中。。</p>
             </div>
 
         </div>
 
 
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModal" style="margin-top: 250px" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel" style="color: black">
+                            提示
+                        </h4>
+                    </div>
+                    <div class="modal-body" style="color: black">
+                        <h5 id="modelinfo">您选择的似乎不是图像文件！！！</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">关闭
+                        </button>
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+
     </div>
-
 </div>
-
 
 </body>
 </html>

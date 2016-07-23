@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="CSS/comment_view.css" />
     <link rel="stylesheet" type="text/css" href="CSS/p1_style.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/p2_style.css" />
     <link rel="stylesheet" type="text/css" href="CSS/p3_style.css" />
     <link rel="stylesheet" type="text/css" href="CSS/p4_style.css" />
     <link rel="stylesheet" type="text/css" href="CSS/p4__myinfo.css" />
@@ -290,20 +291,28 @@
             }
         }
     </script>
-    <script type="text/javascript" src="JS/bootstrap.min.js"></script>
+
+    <script src="JS/bootstrap.min.js"></script>
     <script src="JS/ConnectSQL.js"></script>
     <script src="JS/ServerRequest.js"></script>
 
-    <script type="text/javascript" src="JS/page1.js"></script>
-    <script type="text/javascript" src="JS/page3.js"></script>
-    <script type="text/javascript" src="JS/page4.js"></script>
-    <script type="text/javascript" src="JS/WriteComment.js"></script>
+    <script src="JS/p4_1_myweike.js"></script>
+    <script src="JS/p4_6_myinfo.js"></script>
+
+    <script src="JS/page1.js"></script>
+    <script src="JS/page2.js"></script>
+    <script src="JS/page3.js"></script>
+    <script src="JS/page4.js"></script>
+
+
+    <script src="JS/WriteComment.js"></script>
+
     <script type="text/javascript">
         var sqldata={};
         var ServerRuqest={};
 
         $(document).ready(function (e) {
-            p1_init();p3_init();p4_init();
+            p1_init();p2_init();p3_init();p4_init();
             //SidebarTabHandler.Init();
             sqldata=SQlData.createNew();
             ServerRuqest=ServerData.createServer();
@@ -340,6 +349,15 @@
         window.onload = function() {
             new tab('test2_li_now_', '_', function() {
                // alert('您现在单的是第:' + this['Index'] + '个!');
+                if(this['Index']===2) {
+                    p2_mycourse();
+                }
+                if(this['Index']===3) {
+                    runXJKC();
+                }
+                if(this['Index']===4) {
+                    runWDWK();
+                }
             });
         }
     </script>
@@ -397,10 +415,16 @@
 
         </div>
         <div class="contentBody">
-            <div id="content2">
-
+            <div id="content2_top">
             </div>
-
+            <div id="content2_left">
+            </div>
+            <div id="content2">
+            </div>
+            <div id="content2_right">
+            </div>
+            <div id="content2_botom">
+            </div>
         </div>
     </div>
     <div id="test2_3" class="tablist">

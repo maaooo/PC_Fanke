@@ -1,0 +1,21 @@
+.use-flex{
+    display:flex;
+}
+.use-flex>div:first-child{
+    flex:none;
+    width:100px;
+}
+.use-flex>div:last-child{
+    flex:1;
+}
+
+.use-flex2{
+    display:flex;
+}
+.use-flex2>div:first-child{
+    flex:none;
+    width:100px;
+}
+.use-flex2>div:last-child{
+    flex:1;
+}

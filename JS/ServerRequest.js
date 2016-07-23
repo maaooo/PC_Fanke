@@ -26,7 +26,7 @@ var ServerData ={
             xhr.send(data);
         }
 
-        serverdata.questUpdataFile=function (url,data,callbackOK,callbackError) {
+        serverdata.questUpdataFile=function (url,fdata,callbackOK,callbackError) {
             var xhr = new XMLHttpRequest() ;
 
 
@@ -46,7 +46,7 @@ var ServerData ={
 
             };
             //xhr.setRequestHeader("Content-Type", "multipart/form-data");
-            xhr.send(data);
+            xhr.send(fdata);
 
         }
 
@@ -111,9 +111,64 @@ var ServerData ={
             var url=ServerData.requestUrl+"user_edit";
             this.questUpdataFile(url,data,callbackOK,callbackError);
         }
+        serverdata.up_psd = function(data,callbackOK,callbackError) {//修改用户密码
+            var url=ServerData.requestUrl+"up_psd";
+            this.quest(url,data,callbackOK,callbackError);
+        }
 
 
-
+        serverdata.question_course_all = function(data,callbackOK,callbackError) {//课程社区问题列表
+            var url=ServerData.requestUrl+"question_course_all";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.question_info = function(data,callbackOK,callbackError) {//问题详情
+            var url=ServerData.requestUrl+"question_info";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.ask_alike = function(data,callbackOK,callbackError) {//发表同问
+            var url=ServerData.requestUrl+"ask_alike";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.ask_alike_list = function(data,callbackOK,callbackError) {//同问列表
+            var url=ServerData.requestUrl+"ask_alike_list";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.answer_question = function(data,callbackOK,callbackError) {//回答问题
+            var url=ServerData.requestUrl+"answer_question";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.answer_list = function(data,callbackOK,callbackError) {//回答列表
+            var url=ServerData.requestUrl+"answer_list";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.answer_weike_list = function(data,callbackOK,callbackError) {//微课回答简要列表
+            var url=ServerData.requestUrl+"answer_weike_list";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.my_question = function(data,callbackOK,callbackError) {//微课回答简要列表
+            var url=ServerData.requestUrl+"my_question";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.tribe_list = function(data,callbackOK,callbackError) {//兴趣部落列表
+            var url=ServerData.requestUrl+"tribe_list";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.tribe_attention = function(data,callbackOK,callbackError) {//关注兴趣部落
+            var url=ServerData.requestUrl+"tribe_attention";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.tribe_info_introduce = function(data,callbackOK,callbackError) {//部落详情介绍
+            var url=ServerData.requestUrl+"tribe_info_introduce";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.tribe_member_list = function(data,callbackOK,callbackError) {//兴趣部落成员列表
+            var url=ServerData.requestUrl+"tribe_member_list";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.my_tribe = function(data,callbackOK,callbackError) {//我的部落列表
+            var url=ServerData.requestUrl+"my_tribe";
+            this.quest(url,data,callbackOK,callbackError);
+        }
         return serverdata;
     }
 
