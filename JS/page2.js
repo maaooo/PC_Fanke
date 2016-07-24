@@ -10,12 +10,83 @@ function p2_init() {
     $("#content2").css("height","100%");
 }
 var question_all_list;
+
+function p2tab(o, s, cb, ev) { //tab切换类
+    var $ = function(o) {
+        return document.getElementById(o)
+    };
+    var css = o.split((s || '_'));
+    if (css.length != 4)
+        return;
+    this.event = ev || 'onclick';
+    o = $(o);
+    if (o) {
+        this.ITEM = [];
+        o.id = css[0];
+        var item = o.getElementsByTagName(css[1]);
+        var j = 1;
+        for ( var i = 0; i < item.length; i++) {
+            if (item[i].className.indexOf(css[2]) >= 0
+                || item[i].className.indexOf(css[3]) >= 0) {
+                if (item[i].className == css[2])
+                    o['cur'] = item[i];
+                item[i].callBack = cb || function() {
+                    };
+                item[i]['css'] = css;
+                item[i]['link'] = o;
+                this.ITEM[j] = item[i];
+                item[i]['Index'] = j++;
+                item[i][this.event] = this.ACTIVE;
+            }
+        }
+        return o;
+    }
+}
+p2tab.prototype = {
+    ACTIVE : function() {
+        var $ = function(o) {
+            return document.getElementById(o)
+        };
+        this['link']['cur'].className = this['css'][3];
+        this.className = this['css'][2];
+        try {
+            $(this['link']['id'] + '_' + this['link']['cur']['Index']).style.display = 'none';
+            $(this['link']['id'] + '_' + this['Index']).style.display = 'block';
+        } catch (e) {
+        }
+        this.callBack.call(this);
+        this['link']['cur'] = this;
+    }
+}
+
+function p2_home() {
+
+    $("#rightB").empty();
+    $("#rightB").load("P2_1_course.html #MainRight",function () {
+        $("#rightB").append("<div id='homecontent'></div>")
+       new p2tab('SelectedCourses_li_now_', '_', function() {
+            /*alert('您现在单的是第:' + this['Index'] + '个!');*/
+        });
+
+    });
+}
+
+function p2_KCZX() {//课程中心
+    
+}
+
+
 function p2_mycourse() {
+
+
     $("#content2").empty();
 
+
     $("#content2").load("P2_1_course.html #mycourse",function () {
+        p2_home();
         $("#leftA").empty();
         $("#leftA").load("P2_1_course.html #EnterQuestion",function () {
+            
             $("#leftA").append("<div id='titleAllQuestion' style='width: 100%;height: 36px;background-color: #414A4F;float: left;margin-top: 15px'><p style='margin: 10px 10px;'>全部问题</p></div>");
             var PostData="page="+"1"+"&max=100";
             ServerRuqest.question_course_all(PostData,function (x) {
@@ -56,6 +127,7 @@ function p2_mycourse() {
             });
         });
     });
+
 }
 function ShowModel2(color,info) {
     $('#modelinfo2').attr("style","color:"+color);

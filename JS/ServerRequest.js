@@ -149,10 +149,7 @@ var ServerData ={
             var url=ServerData.requestUrl+"my_question";
             this.quest(url,data,callbackOK,callbackError);
         }
-        serverdata.tribe_list = function(data,callbackOK,callbackError) {//兴趣部落列表
-            var url=ServerData.requestUrl+"tribe_list";
-            this.quest(url,data,callbackOK,callbackError);
-        }
+
         serverdata.tribe_attention = function(data,callbackOK,callbackError) {//关注兴趣部落
             var url=ServerData.requestUrl+"tribe_attention";
             this.quest(url,data,callbackOK,callbackError);
@@ -169,6 +166,16 @@ var ServerData ={
             var url=ServerData.requestUrl+"my_tribe";
             this.quest(url,data,callbackOK,callbackError);
         }
+        serverdata.course_list = function(data,callbackOK,callbackError) {//课程中心列表
+            var url=ServerData.requestUrl+"course_list";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+        serverdata.tribe_list = function(data,callbackOK,callbackError) {//兴趣部落列表
+            var url=ServerData.requestUrl+"tribe_list";
+            this.quest(url,data,callbackOK,callbackError);
+        }
+
+
         return serverdata;
     }
 
